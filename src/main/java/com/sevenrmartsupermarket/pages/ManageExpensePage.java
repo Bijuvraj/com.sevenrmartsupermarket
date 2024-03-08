@@ -57,4 +57,8 @@ public class ManageExpensePage {
 	{
 		
 	}
+	public void main()
+	{
+		
+	}
 }
