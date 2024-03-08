@@ -18,6 +18,11 @@
 		</classes>
 	</test>
 	<test name="sanityTest">
+		<groups>
+				<run>
+					<include name = "sanityTest"></include>
+				</run>
+		</groups>
 		<classes>
 			<class name="com.sevenrmartsupermarket.tests.AdminUsersTest"></class>
 			<class name="com.sevenrmartsupermarket.tests.HomeTest"></class>
