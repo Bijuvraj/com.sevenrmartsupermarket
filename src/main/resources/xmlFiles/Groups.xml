@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<suite name="groupRun" thread-count="5" parallel="tests">
+	<listeners>
+		<listener
+			class-name="com.sevenrmartsupermarket.listeners.ExtentReporter"></listener>
+	</listeners>
+	<test name="smokeTest">
+		<groups>
+				<run>
+					<include name = "smokeTest"></include>
+				</run>
+		</groups>
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.HomeTest"></class>
+			<class name="com.sevenrmartsupermarket.tests.AdminUsersTest"></class>
+		</classes>
+	</test>
+	<test name="sanityTest">
+		<groups>
+				<run>
+					<include name = "sanityTest"></include>
+				</run>
+		</groups>
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.AdminUsersTest"></class>
+			<class name="com.sevenrmartsupermarket.tests.HomeTest"></class>
+		</classes>
+	</test>
+</suite>
