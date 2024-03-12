@@ -30,7 +30,7 @@ public class AdminUsersTest extends Base {
 		loginPage.login();
 		homePage.clickOnAdminUsers();
 		adminuserspage.clickOnNewButton();
-
+		System.out.println();
 	}
 
 	@Test
