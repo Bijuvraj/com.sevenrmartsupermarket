@@ -19,6 +19,7 @@ public class AdminUsersTest extends Base {
 		homePage = new HomePage(driver);
 		loginPage.login();
 		homePage.clickOnAdminUsers();
+		System.out.println();
 	}
 
 	@Test(groups = "smokeTest")
