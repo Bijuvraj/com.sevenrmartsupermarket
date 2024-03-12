@@ -31,6 +31,7 @@ public class AdminUsersTest extends Base {
 		homePage.clickOnAdminUsers();
 		adminuserspage.clickOnNewButton();
 		System.out.println();
+		System.out.println();
 	}
 
 	@Test
