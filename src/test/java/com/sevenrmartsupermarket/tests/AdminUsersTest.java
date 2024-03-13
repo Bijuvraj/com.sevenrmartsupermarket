@@ -1,5 +1,6 @@
 package com.sevenrmartsupermarket.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.sevenrmartsupermarket.base.Base;
@@ -31,11 +32,10 @@ public class AdminUsersTest extends Base {
 		loginPage.login();
 		homePage.clickOnAdminUsers();
 		adminuserspage.clickOnNewButton();
-		System.out.println();
 	}
 
 	@Test
-	public void verifyCreatNewAdminUser() {
+	public void verifyThatCreateNewAdminUser() {
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
 		adminuserspage = new AdminUsersPage(driver);
@@ -150,6 +150,8 @@ public class AdminUsersTest extends Base {
 		adminuserspage.clickOnTheDeleteButton();
 		driver.switchTo().alert().accept();
 		adminuserspage.getUserDeleteSuccessfullyAlertText();
+		String result = adminuserspage.getUserDeleteSuccessfullyAlertText();
+		Assert.assertEquals(result, "Alert!");
 	}
 	@Test
 	public void verifyWetherSearchTheDeletedAdminUser()
@@ -162,7 +164,9 @@ public class AdminUsersTest extends Base {
 		adminuserspage.clickOntheSearchButton();
 		adminuserspage.enterUserNameInSearch("Ruthanne");
 		adminuserspage.clickOnTheSearchButtonAfterEnterTheSearchDetails();
-		adminuserspage.getSearchResultNotFoundText();
+		System.out.println(adminuserspage.getSearchResultNotFoundText());
+		String result = adminuserspage.getSearchResultNotFoundText();
+		Assert.assertEquals(result,".........RESULT NOT FOUND.......");
 	}
 	@Test
 	public void verifyThatDeactivateTheUser()

@@ -131,12 +131,12 @@ public class AdminUsersPage {
 		deleteButton.click();
 	}
 
-	public void getUserDeleteSuccessfullyAlertText() {
-		System.out.println(deleteSuccessfullyText.getText());
+	public String getUserDeleteSuccessfullyAlertText() {
+		return(deleteSuccessfullyText.getText());
 	}
 
-	public void getSearchResultNotFoundText() {
-		System.out.println(resultNotFoundText.getText());
+	public String getSearchResultNotFoundText() {
+		return(resultNotFoundText.getText());
 	}
 
 	public void deactivatingUser(String person) {

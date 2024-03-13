@@ -12,6 +12,7 @@ public class ManageDeliveryBoyTest extends Base {
 	LoginPage loginPage;
 	HomePage homePage;
 	ManageDeliveryBoyPage managedeliveryboypage;
+	
 	@Test
 	public void clickOnTheManageDeliveryBoyOption() {
 		loginPage = new LoginPage(driver);
