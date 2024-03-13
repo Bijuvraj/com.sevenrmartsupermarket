@@ -31,7 +31,6 @@ public class AdminUsersTest extends Base {
 		homePage.clickOnAdminUsers();
 		adminuserspage.clickOnNewButton();
 		System.out.println();
-		System.out.println();
 	}
 
 	@Test
@@ -172,6 +171,6 @@ public class AdminUsersTest extends Base {
 		adminuserspage = new AdminUsersPage(driver);
 		loginPage.login();
 		homePage.clickOnAdminUsers();
-		adminuserspage.deactivatingUser("Kory");
+		adminuserspage.deactivatingUser("abcd56356397587");
 	}
 }
