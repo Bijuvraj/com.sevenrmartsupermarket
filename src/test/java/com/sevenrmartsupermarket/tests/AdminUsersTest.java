@@ -6,6 +6,7 @@ import com.sevenrmartsupermarket.base.Base;
 import com.sevenrmartsupermarket.pages.AdminUsersPage;
 import com.sevenrmartsupermarket.pages.HomePage;
 import com.sevenrmartsupermarket.pages.LoginPage;
+import com.sevenrmartsupermarket.pages.ManageExpensePage;
 import com.sevenrmartsupermarket.utilities.GeneralUtility;
 
 public class AdminUsersTest extends Base {
@@ -164,7 +165,7 @@ public class AdminUsersTest extends Base {
 		adminuserspage.getSearchResultNotFoundText();
 	}
 	@Test
-	public void deactivate()
+	public void verifyThatDeactivateTheUser()
 	{
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
@@ -172,5 +173,34 @@ public class AdminUsersTest extends Base {
 		loginPage.login();
 		homePage.clickOnAdminUsers();
 		adminuserspage.deactivatingUser("abcd56356397587");
+		adminuserspage.verifyTheAlertMessage();
+		adminuserspage.alertClose();
+	}
+	@Test
+	public void verifyThatDeleteTheUser()
+	{
+		loginPage = new LoginPage(driver);
+		homePage = new HomePage(driver);
+		adminuserspage = new AdminUsersPage(driver);
+		loginPage.login();
+		homePage.clickOnAdminUsers();
+		adminuserspage.deleteTheUser("user437995067");
+		driver.switchTo().alert().accept();
+		adminuserspage.verifyTheAlertMessage();
+		adminuserspage.alertClose();
+	}
+	@Test
+	public void verifyThatEditTheUserDetails()
+	{
+		loginPage = new LoginPage(driver);
+		homePage = new HomePage(driver);
+		adminuserspage = new AdminUsersPage(driver);
+		loginPage.login();
+		homePage.clickOnAdminUsers();
+		adminuserspage.editTheUserDetails("user43799506");
+		adminuserspage.clickBack_Space();
+		adminuserspage.clickOnTheUpdateButton();
+		adminuserspage.verifyTheAlertMessage();
+		adminuserspage.alertClose();
 	}
 }

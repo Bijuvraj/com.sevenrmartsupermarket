@@ -1,6 +1,7 @@
 package com.sevenrmartsupermarket.utilities;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -47,6 +48,10 @@ public class PageUtility {
 			js.executeScript("window.scrollBy(0," + y + ")");
 			y = y + 3;
 		}
+	}
+	public void clickBack_Space(WebElement element)
+	{
+		element.sendKeys(Keys.BACK_SPACE);
 	}
 
 	public boolean isClicked(WebElement element) {

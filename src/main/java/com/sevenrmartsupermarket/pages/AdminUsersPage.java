@@ -11,11 +11,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.sevenrmartsupermarket.utilities.GeneralUtility;
+import com.sevenrmartsupermarket.utilities.PageUtility;
 
 public class AdminUsersPage {
 	WebDriver driver;
 	Properties properties = new Properties();
 	GeneralUtility generalUtility = new GeneralUtility();
+	PageUtility pageUtility;
 
 	@FindBy(xpath = "//a[@onclick='click_button(1)']")
 	WebElement creatnewbutton;
@@ -35,8 +37,12 @@ public class AdminUsersPage {
 	WebElement usertypedeleveryboy;
 	@FindBy(xpath = "//button[@name='Create']")
 	WebElement saveButton;
-	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
-	WebElement alertmsg;
+	@FindBy(xpath = "//h5[text()=' Alert!']")
+	WebElement alertSuccessmsg;
+	@FindBy(xpath = "//h5[text()=' Alert!']")
+	WebElement alertCloseBtn;
+	@FindBy(xpath = "//button[@class='close']")
+	WebElement statusChangeAlertCloseBtn;
 	@FindBy(xpath = "//a[@onclick='click_button(2)']")
 	WebElement adminuserssearch;
 	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-admin']")
@@ -49,12 +55,16 @@ public class AdminUsersPage {
 	WebElement searchButtonInsideSearch;
 	@FindBy(xpath = "//a[@class='btn btn-sm btn btn-danger btncss']")
 	WebElement deleteButton;
-	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+	@FindBy(xpath = "//h5[text()=' Alert!']")
 	WebElement deleteSuccessfullyText;
 	@FindBy(xpath = "//center[text()='.........RESULT NOT FOUND.......']")
 	WebElement resultNotFoundText;
 	@FindBy(xpath = "//table//tbody/tr//td[1]")
 	List<WebElement> names;
+	@FindBy(xpath ="//button[@name='Update']")
+	WebElement updateBtnInEdit;
+	@FindBy(xpath = "//input[@id='username']")
+	WebElement userNameFieldInUpdate;
 
 	public AdminUsersPage(WebDriver driver) {
 		this.driver = driver;
@@ -98,7 +108,11 @@ public class AdminUsersPage {
 	}
 
 	public String verifyTheAlertMessage() {
-		return (alertmsg.getText());
+		return (alertSuccessmsg.getText());
+	}
+	public void alertClose()
+	{
+		statusChangeAlertCloseBtn.click();
 	}
 
 	public void clickOntheSearchButton() {
@@ -138,6 +152,45 @@ public class AdminUsersPage {
 		System.out.println(allName);
 		WebElement nameElement = driver.findElement(By.xpath("//table//tbody/tr[" + index + "]//td[5]//a[1]"));
 		nameElement.click();
-
+	}
+	public void deleteTheUser(String person)
+	{
+		List<String> allName = new ArrayList<String>();
+		allName = generalUtility.getTextOfElements(names);
+		int index = 0;
+		for (index = 0; index < allName.size(); index++) {
+			if (person.equals(allName.get(index))) {
+				index++;
+				break;
+			}
+		}
+		System.out.println(allName);
+		WebElement nameElement = driver.findElement(By.xpath("//table//tbody/tr[" + index + "]//td[5]//a[3]"));
+		nameElement.click();
+	}
+	public void editTheUserDetails(String person)
+	{
+		List<String> allName = new ArrayList<String>();
+		allName = generalUtility.getTextOfElements(names);
+		int index = 0;
+		for (index = 0; index < allName.size(); index++) {
+			if (person.equals(allName.get(index))) {
+				index++;
+				break;
+			}
+		}
+		System.out.println(allName);
+		WebElement nameElement = driver.findElement(By.xpath("//table//tbody/tr[" + index + "]//td[5]//a[2]"));
+		nameElement.click();
+	}
+	public void clickOnTheUpdateButton()
+	{
+		updateBtnInEdit.click();
+	}
+	public void clickBack_Space()
+	{
+		userNameFieldInUpdate.click();
+		pageUtility = new PageUtility(driver);
+		pageUtility.clickBack_Space(userNameFieldInUpdate);
 	}
 }
