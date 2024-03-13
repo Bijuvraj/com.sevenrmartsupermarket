@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.sevenrmartsupermarket.base.Base;
+import com.sevenrmartsupermarket.pages.AdminUsersPage;
 import com.sevenrmartsupermarket.pages.HomePage;
 import com.sevenrmartsupermarket.pages.LoginPage;
 import com.sevenrmartsupermarket.pages.ManageExpensePage;
@@ -34,6 +35,22 @@ public class ManageExpenseTest extends Base {
 		manageexpensepage.cilckOnTheNewExpenseCategoryButton();
 		manageexpensepage.enterTheTitle("Expense " + GeneralUtility.getRandomFirstName());
 		manageexpensepage.ClickOnTheSaveButton();
+	}
+	@Test
+	public void VerifyThatEditTheExpenseCategoryInList()
+	{
+		loginPage = new LoginPage(driver);
+		homePage = new HomePage(driver);
+		manageexpensepage = new ManageExpensePage(driver);
+		loginPage.login();
+		homePage.clickOnTheManageExpense();
+		manageexpensepage.clickOnTheExpenseCategory();
+		//manageexpensepage.clickOnTheSeachButtonInCategoryExpense();
+		manageexpensepage.clickOnTheEditCategoryButton("Expense Mi");
+		manageexpensepage.clickOnBack_Space();
+		manageexpensepage.clickOnTheUpdateButtonInEdit();
+		manageexpensepage.newManageExpenseCreateSuccessfullyalert();
+		manageexpensepage.closeTheNewManageExpenseAlert();
 	}
 
 	@Test

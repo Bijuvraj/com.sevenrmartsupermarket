@@ -4,21 +4,32 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import com.sevenrmartsupermarket.utilities.GeneralUtility;
 import com.sevenrmartsupermarket.utilities.PageUtility;
 
 public class ManageExpensePage {
 	PageUtility pageUtility;
 	HomePage homePage;
+	GeneralUtility generalUtility;
 	public WebDriver driver;
 
 	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/expense-category']")
 	WebElement expenseCategory;
+	@FindBy(xpath = "//table//tbody//tr//td")
+	List<WebElement> allCategoryTitle;
+	@FindBy(xpath = "//input[@name='name']")
+	WebElement enterTitleNameInEdit;
+	@FindBy(xpath = "//button[@name='Update']")
+	WebElement updateBtnInEdit;
+	@FindBy(xpath ="//a[@onclick='click_button(2)']")
+	WebElement searchBtnInCategory;
 	@FindBy(xpath = "//p[text()='Manage Expense']")////a[@href='https://groceryapp.uniqassosiates.com/admin/list-expense']
 	WebElement manageExpense;
 	@FindBy(xpath = "//a[@onclick='click_button(1)']")
@@ -80,6 +91,36 @@ public class ManageExpensePage {
 
 	public void clickOnTheExpenseCategory() {
 		expenseCategory.click();
+	}
+	public void clickOnTheSeachButtonInCategoryExpense()
+	{
+		searchBtnInCategory.click();
+	}
+	public void clickOnTheEditCategoryButton(String titleName)
+	{
+		GeneralUtility generalUtility= new GeneralUtility();
+		List<String> allName = new ArrayList<String>();
+		allName = generalUtility.getTextOfElements(allCategoryTitle);
+		int index = 0;
+		for (index = 0; index < allName.size(); index++) {
+			if (titleName.equals(allName.get(index))) {
+				index++;
+				break;
+			}
+		}
+		System.out.println(allName);
+		WebElement nameElement = driver.findElement(By.xpath("//div//table//tbody//tr["+index+"]//td[2]//a[1]"));
+		nameElement.click();
+	}
+	public void clickOnBack_Space()
+	{
+		enterTitleNameInEdit.click();
+		pageUtility = new PageUtility(driver);
+		pageUtility.clickBack_Space(enterTitleNameInEdit);
+	}
+	public void clickOnTheUpdateButtonInEdit()
+	{
+		updateBtnInEdit.click();
 	}
 
 	public void clickOnTheManageExpenseOption() {
