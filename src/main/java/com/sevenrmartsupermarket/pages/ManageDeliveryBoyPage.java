@@ -13,33 +13,33 @@ public class ManageDeliveryBoyPage {
 	PageUtility pageUtility;
 
 	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/Deliveryboy/add']")
-	WebElement newButton;
+	private WebElement newButton;
 	@FindBy(xpath = "//input[@id='name']")
-	WebElement enterNamefield;
+	private WebElement enterNamefield;
 	@FindBy(xpath = "//input[@id='email']")
-	WebElement enterEmailField;
+	private WebElement enterEmailField;
 	@FindBy(xpath = "//input[@id='phone']")
-	WebElement enterPhoneNoField;
+	private WebElement enterPhoneNoField;
 	@FindBy(xpath = "//textarea[@id='address']")
-	WebElement enterAddressField;
+	private WebElement enterAddressField;
 	@FindBy(xpath = "//input[@id='username']")
-	WebElement enterUserNameField;
+	private WebElement enterUserNameField;
 	@FindBy(xpath = "//input[@id='password']")
-	WebElement enterPasswordField;
+	private WebElement enterPasswordField;
 	@FindBy(xpath = "//button[text()='Save']")
-	WebElement saveButton;
+	private WebElement saveButton;
 	@FindBy(xpath = "//a[@href='javascript:void(0)']")
-	WebElement searchButton;
+	private WebElement searchButton;
 	@FindBy(xpath = "//input [@id='un']")
-	WebElement searchByNamefield;
+	private WebElement searchByNamefield;
 	@FindBy(xpath = "//button[@value='sr']")
-	WebElement searchButtonByAll;
+	private WebElement searchButtonByAll;
 	@FindBy(xpath = "(//a[@role='button'])[3]")
-	WebElement deleteButton;
+	private WebElement deleteButton;
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
-	WebElement deleteSuccessAlert;
+	private WebElement deleteSuccessAlert;
 	@FindBy(xpath = "//center[text()='.........RESULT NOT FOUND.......']")
-	WebElement searchResultNotFound;
+	private WebElement searchResultNotFound;
 	
 	public ManageDeliveryBoyPage(WebDriver driver) {
 		this.driver = driver;

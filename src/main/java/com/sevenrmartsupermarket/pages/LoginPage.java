@@ -15,13 +15,13 @@ public class LoginPage {
 	Properties properties = new Properties();
 
 	@FindBy(xpath = "//input[@placeholder='Username']")
-	WebElement userNameField;
+	private WebElement userNameField;
 	@FindBy(xpath = "//input[@placeholder='Password']")
-	WebElement passwordField;
+	private WebElement passwordField;
 	@FindBy(xpath = "//button[text()='Sign In']")
-	WebElement loginButton;
+	private WebElement loginButton;
 	@FindBy(xpath = "//label[@for='remember']") ////label[contains(text(),'Remember Me')]
-	WebElement checkBox;
+	private WebElement checkBox;
 
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;

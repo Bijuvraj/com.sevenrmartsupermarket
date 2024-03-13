@@ -20,51 +20,51 @@ public class AdminUsersPage {
 	PageUtility pageUtility;
 
 	@FindBy(xpath = "//a[@onclick='click_button(1)']")
-	WebElement creatnewbutton;
+	private WebElement creatnewbutton;
 	@FindBy(xpath = "//input[@id='username']")
-	WebElement adminusersusername;
+	private WebElement adminusersusername;
 	@FindBy(xpath = "//input[@id='password']")
-	WebElement adminuserspassword;
+	private WebElement adminuserspassword;
 	@FindBy(xpath = "//select[@id='user_type']")
-	WebElement usertypedropdown;
+	private WebElement usertypedropdown;
 	@FindBy(xpath = "//select[@id='user_type']//option[@value='staff']")
-	WebElement usertypestaff;
+	private WebElement usertypestaff;
 	@FindBy(xpath = "//select[@id='user_type']//option[@value='admin']")
-	WebElement usertypeadmin;
+	private WebElement usertypeadmin;
 	@FindBy(xpath = "//select[@id='user_type']//option[@value='partner']")
-	WebElement usertypepartner;
+	private WebElement usertypepartner;
 	@FindBy(xpath = "//select[@id='user_type']//option[@value='db']")
-	WebElement usertypedeleveryboy;
+	private WebElement usertypedeleveryboy;
 	@FindBy(xpath = "//button[@name='Create']")
-	WebElement saveButton;
+	private WebElement saveButton;
 	@FindBy(xpath = "//h5[text()=' Alert!']")
-	WebElement alertSuccessmsg;
+	private WebElement alertSuccessmsg;
 	@FindBy(xpath = "//h5[text()=' Alert!']")
-	WebElement alertCloseBtn;
+	private WebElement alertCloseBtn;
 	@FindBy(xpath = "//button[@class='close']")
-	WebElement statusChangeAlertCloseBtn;
+	private WebElement statusChangeAlertCloseBtn;
 	@FindBy(xpath = "//a[@onclick='click_button(2)']")
-	WebElement adminuserssearch;
+	private WebElement adminuserssearch;
 	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-admin']")
-	WebElement adminusersreset;
+	private WebElement adminusersreset;
 	@FindBy(xpath = "//a[@onclick='click_button(2)']")
-	WebElement searchbuttonInAdminUser;
+	private WebElement searchbuttonInAdminUser;
 	@FindBy(xpath = "//input[@id='un']")
-	WebElement userNameFieldInSearch;
+	private WebElement userNameFieldInSearch;
 	@FindBy(xpath = "//button[@value='sr']")
-	WebElement searchButtonInsideSearch;
+	private WebElement searchButtonInsideSearch;
 	@FindBy(xpath = "//a[@class='btn btn-sm btn btn-danger btncss']")
-	WebElement deleteButton;
+	private WebElement deleteButton;
 	@FindBy(xpath = "//h5[text()=' Alert!']")
-	WebElement deleteSuccessfullyText;
+	private WebElement deleteSuccessfullyText;
 	@FindBy(xpath = "//center[text()='.........RESULT NOT FOUND.......']")
-	WebElement resultNotFoundText;
+	private WebElement resultNotFoundText;
 	@FindBy(xpath = "//table//tbody/tr//td[1]")
-	List<WebElement> names;
+	private List<WebElement> names;
 	@FindBy(xpath ="//button[@name='Update']")
-	WebElement updateBtnInEdit;
+	private WebElement updateBtnInEdit;
 	@FindBy(xpath = "//input[@id='username']")
-	WebElement userNameFieldInUpdate;
+	private WebElement userNameFieldInUpdate;
 
 	public AdminUsersPage(WebDriver driver) {
 		this.driver = driver;

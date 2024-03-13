@@ -21,67 +21,67 @@ public class ManageExpensePage {
 	public WebDriver driver;
 
 	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/expense-category']")
-	WebElement expenseCategory;
+	private WebElement expenseCategory;
 	@FindBy(xpath = "//table//tbody//tr//td")
-	List<WebElement> allCategoryTitle;
+	private List<WebElement> allCategoryTitle;
 	@FindBy(xpath = "//input[@name='name']")
-	WebElement enterTitleNameInEdit;
+	private WebElement enterTitleNameInEdit;
 	@FindBy(xpath = "//button[@name='Update']")
-	WebElement updateBtnInEdit;
+	private WebElement updateBtnInEdit;
 	@FindBy(xpath ="//a[@onclick='click_button(2)']")
-	WebElement searchBtnInCategory;
+	private WebElement searchBtnInCategory;
 	@FindBy(xpath = "//p[text()='Manage Expense']")////a[@href='https://groceryapp.uniqassosiates.com/admin/list-expense']
-	WebElement manageExpense;
+	private WebElement manageExpense;
 	@FindBy(xpath = "//a[@onclick='click_button(1)']")
-	WebElement createNewExpenseCategoryBtn;
+	private WebElement createNewExpenseCategoryBtn;
 	@FindBy(xpath = "//a[@onclick='click_button(2)']")
-	WebElement searchExpenseCategoryBtn;
+	private WebElement searchExpenseCategoryBtn;
 	@FindBy(xpath = "//input[@id='name']")
-	WebElement titleOfNewExpenseCategory;
+	private WebElement titleOfNewExpenseCategory;
 	@FindBy(xpath = "//button[@name='Create']")
-	WebElement saveButton;
+	private WebElement saveButton;
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
-	WebElement titleCreationSuccessAlertMsg;
+	private WebElement titleCreationSuccessAlertMsg;
 	@FindBy(xpath = "//a[@onclick='click_button(1)']")
-	WebElement createNewExpenseCategory;
+	private WebElement createNewExpenseCategory;
 	@FindBy(xpath = "//a[@onclick='click_button(1)']")
-	WebElement newManageExpenseBtn;
+	private WebElement newManageExpenseBtn;
 	@FindBy(xpath = "//a[@onclick='click_button(2)']")
-	WebElement searchManageExpenseBtn;
+	private WebElement searchManageExpenseBtn;
 	@FindBy(xpath = "//select[@id='user_id']")
-	WebElement selectUser;
+	private WebElement selectUser;
 	@FindBy(xpath = "//input[@class='form-control date']")
-	WebElement selectDate;
+	private WebElement selectDate;
 	@FindBy(xpath = "//select[@id='ex_cat']")
-	WebElement selectCatagory;
+	private WebElement selectCatagory;
 	@FindBy(xpath = "//select[@id='order_id']")
-	WebElement selectOrderid;
+	private WebElement selectOrderid;
 	@FindBy(xpath = "//select[@id='purchase_id']")
-	WebElement purchaseId;
+	private WebElement purchaseId;
 	@FindBy(xpath = "//select[@id='ex_type']")
-	WebElement expenseType;
+	private WebElement expenseType;
 	@FindBy(xpath = "//input[@id='amount']")
-	WebElement amount1;
+	private WebElement amount1;
 	@FindBy(xpath = "//textarea[@placeholder='Enter the Content']")
-	WebElement remarksField;
+	private WebElement remarksField;
 	@FindBy(xpath = "//input[@type='file']")
-	WebElement chooseFileBtn;
+	private WebElement chooseFileBtn;
 	@FindBy(xpath = "//button[@type='submit']")
-	WebElement save;
+	private WebElement save;
 	@FindBy(xpath = "//h5[text()=' Alert!']")
-	WebElement alert;
+	private WebElement alert;
 	@FindBy(xpath = "//button[@class='close']")
-	WebElement alertCloseBtn;
+	private WebElement alertCloseBtn;
 	@FindBy(xpath ="//a[text()='Cancel']")
-	WebElement cancelButton;
+	private WebElement cancelButton;
 	@FindBy(xpath = "//select[@id='um']")
-	WebElement selectUserInSearch;
+	private WebElement selectUserInSearch;
 	@FindBy(xpath = "//button[@name='Search']")
-	WebElement searchBtnInSearch;
+	private WebElement searchBtnInSearch;
 	@FindBy(xpath ="//table//tbody//tr[1]/td")
-	WebElement getSearchDetails;
+	private WebElement getSearchDetails;
 	@FindBy(xpath = "//a[text()='Reset']")
-	WebElement resetBtnInSearch;
+	private WebElement resetBtnInSearch;
 	
 
 	public ManageExpensePage(WebDriver driver) {

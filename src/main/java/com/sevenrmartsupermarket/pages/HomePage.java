@@ -15,17 +15,17 @@ public class HomePage {
 	public WebDriver driver;
 
 	@FindBy(xpath = "//div[@class='info']//a[@href='https://groceryapp.uniqassosiates.com/admin/home']")
-	WebElement profileName;
+	private WebElement profileName;
 	@FindBy(xpath = "(//p[text()='Admin Users'])[1]")
-	WebElement adminusers;
+	private WebElement adminusers;
 	@FindBy(xpath = "(//a[@href='https://groceryapp.uniqassosiates.com/admin/list-deliveryboy'])[1]")
-	WebElement managedeleveryboy;
+	private WebElement managedeleveryboy;
 	@FindBy(xpath = "(//li//a[@class='nav-link'])[3]")
-	WebElement manageExpense;
+	private WebElement manageExpense;
 	@FindBy(xpath = "//section//div/p")
-	List<WebElement> iconslist;
+	private List<WebElement> iconslist;
 	@FindBy(xpath = "//nav[@class='mt-2']//ul//li//a")
-	List<WebElement> allOptionlist;
+	private List<WebElement> allOptionlist;
 
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
