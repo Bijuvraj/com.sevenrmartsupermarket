@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-
 <suite name="groupRun" thread-count="5" parallel="tests">
 	<listeners>
 		<listener
@@ -8,9 +6,9 @@
 	</listeners>
 	<test name="smokeTest">
 		<groups>
-				<run>
-					<include name = "smokeTest"></include>
-				</run>
+			<run>
+				<include name="smokeTest"></include>
+			</run>
 		</groups>
 		<classes>
 			<class name="com.sevenrmartsupermarket.tests.HomeTest"></class>
@@ -19,9 +17,9 @@
 	</test>
 	<test name="sanityTest">
 		<groups>
-				<run>
-					<include name = "sanityTest"></include>
-				</run>
+			<run>
+				<include name="sanityTest"></include>
+			</run>
 		</groups>
 		<classes>
 			<class name="com.sevenrmartsupermarket.tests.AdminUsersTest"></class>

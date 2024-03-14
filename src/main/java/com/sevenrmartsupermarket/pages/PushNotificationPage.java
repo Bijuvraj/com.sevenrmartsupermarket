@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 public class PushNotificationPage {
 	WebDriver driver;
 	Properties properties = new Properties();
-	
+
 	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-notifications']")
 	private WebElement pushnotification;
 	@FindBy(xpath = "//input[@placeholder='Enter Title']")

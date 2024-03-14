@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-
 <suite name="test" thread-count="5" parallel="tests">
 	<listeners>
 		<listener
@@ -13,15 +11,12 @@
 	</test>
 	<test name="regressionTest2">
 		<classes>
-			<class name="com.sevenrmartsupermarket.tests.AdminUsersTest"></class>
+			<class name="com.sevenrmartsupermarket.tests.LoginTest"></class>
 		</classes>
 	</test>
 	<test name="regressionTest3">
 		<classes>
-
 			<class name="com.sevenrmartsupermarket.tests.PushNotificationTest"></class>
-
 		</classes>
 	</test>
-
 </suite>

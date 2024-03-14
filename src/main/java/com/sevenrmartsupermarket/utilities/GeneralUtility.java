@@ -21,16 +21,14 @@ public class GeneralUtility {
 		}
 		return data;
 	}
-	
-	public String getCssValues(WebElement element,String attribute) {
-	
+
+	public String getCssValues(WebElement element, String attribute) {
+
 		return (element.getCssValue(attribute));
 	}
-	public static String getRandomFirstName()
-	{
+
+	public static String getRandomFirstName() {
 		Faker faker = new Faker();
 		return faker.name().firstName();
 	}
-	}
-	
-
+}

@@ -34,7 +34,7 @@ public class ManageExpensePage {
 	private WebElement updateBtnInEdit;
 	@FindBy(xpath = "//a[@onclick='click_button(2)']")
 	private WebElement searchBtnInCategory;
-	@FindBy(xpath = "//p[text()='Manage Expense']") 
+	@FindBy(xpath = "//p[text()='Manage Expense']")
 	private WebElement manageExpense;
 	@FindBy(xpath = "//a[@onclick='click_button(1)']")
 	private WebElement createNewExpenseCategoryBtn;
@@ -107,20 +107,20 @@ public class ManageExpensePage {
 	public void clickOnTheSeachButtonInCategoryExpense() {
 		searchBtnInCategory.click();
 	}
-	public void clickOnTheSearchButtonInExpenseCategory()
-	{
+
+	public void clickOnTheSearchButtonInExpenseCategory() {
 		searchBtnInSearchExpenseCategory.click();
 	}
-	public void clickOnTheResetButtonInTheExpenseCategory()
-	{
+
+	public void clickOnTheResetButtonInTheExpenseCategory() {
 		resetBtnInExpenseCategory.click();
 	}
-	public void enterExpenseTitleNameInSearch(String title)
-	{
+
+	public void enterExpenseTitleNameInSearch(String title) {
 		titleFieldInSearchExpenseCategory.sendKeys(title);
 	}
-	public String verifySearchedDetailsTitleName()
-	{
+
+	public String verifySearchedDetailsTitleName() {
 		return SearchDetailsInExpenseCategory.getText();
 	}
 
@@ -152,15 +152,16 @@ public class ManageExpensePage {
 	public void clickOnTheManageExpenseOption() {
 		manageExpense.click();
 	}
-	public String getSubOptionsOfManageExpense()
-	{
-		List<WebElement> subOption = driver.findElements(By.xpath("//li[@class='nav-item has-treeview menu-open']//ul[@class='nav nav-treeview']//li[@class='nav-item']//a//p"));
-		for(WebElement e : subOption)
-		{
+
+	public String getSubOptionsOfManageExpense() {
+		List<WebElement> subOption = driver.findElements(By.xpath(
+				"//li[@class='nav-item has-treeview menu-open']//ul[@class='nav nav-treeview']//li[@class='nav-item']//a//p"));
+		for (WebElement e : subOption) {
 			System.out.println(e.getText());
 		}
 		return "";
 	}
+
 	public String verifyTheFooterTextInHome() {
 		return footerText.getText();
 	}

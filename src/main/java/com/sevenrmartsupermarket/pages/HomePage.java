@@ -35,30 +35,30 @@ public class HomePage {
 	public String getProfileName() {
 		return (profileName.getText());
 	}
-	public List<String> printAllIconsNames()
-	{
-		GeneralUtility generalutility= new GeneralUtility();
-		List<String> iconsName=new ArrayList<String>();
-		iconsName=generalutility.getTextOfElements(iconslist);
-	    return iconsName;
-}
-	public List<String> printAllOptionsName()
-	{
-		GeneralUtility generalutility= new GeneralUtility();
-		List<String> optionsName=new ArrayList<String>();
-		optionsName=generalutility.getTextOfElements(allOptionlist);
-	    return optionsName;
+
+	public List<String> printAllIconsNames() {
+		GeneralUtility generalutility = new GeneralUtility();
+		List<String> iconsName = new ArrayList<String>();
+		iconsName = generalutility.getTextOfElements(iconslist);
+		return iconsName;
 	}
-	public void clickOnAdminUsers()
-	{
+
+	public List<String> printAllOptionsName() {
+		GeneralUtility generalutility = new GeneralUtility();
+		List<String> optionsName = new ArrayList<String>();
+		optionsName = generalutility.getTextOfElements(allOptionlist);
+		return optionsName;
+	}
+
+	public void clickOnAdminUsers() {
 		adminusers.click();
 	}
-	public void clickOnTheManageDeliveryBoyOption()
-	{
+
+	public void clickOnTheManageDeliveryBoyOption() {
 		managedeleveryboy.click();
 	}
-	public void clickOnTheManageExpense()
-	{
+
+	public void clickOnTheManageExpense() {
 		manageExpense.click();
 	}
 }

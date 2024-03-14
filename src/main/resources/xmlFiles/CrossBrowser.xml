@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-
 <suite name="crossBrowser" thread-count="5" parallel="tests">
 	<listeners>
 		<listener
@@ -9,14 +7,14 @@
 	<test name="runningInChrome">
 		<parameter name="browser" value="Chrome"></parameter>
 		<classes>
-			<class name="com.sevenrmartsupermarket.tests.HomeTest"></class>
+			<class name="com.sevenrmartsupermarket.tests.LoginTest"></class>
 			<class name="com.sevenrmartsupermarket.tests.AdminUsersTest"></class>
 		</classes>
 	</test>
 	<test name="runningInEdge">
 		<parameter name="browser" value="Edge"></parameter>
 		<classes>
-			<class name="com.sevenrmartsupermarket.tests.AdminUsersTest"></class>
+			<class name="com.sevenrmartsupermarket.tests.ManageDeliveryBoyTest"></class>
 			<class name="com.sevenrmartsupermarket.tests.HomeTest"></class>
 		</classes>
 	</test>
@@ -24,7 +22,7 @@
 		<parameter name="browser" value="Firefox"></parameter>
 		<classes>
 			<class name="com.sevenrmartsupermarket.tests.PushNotificationTest"></class>
-			<class name="com.sevenrmartsupermarket.tests.AdminUsersTest"></class>
+			<class name="com.sevenrmartsupermarket.tests.ManageExpenseTest"></class>
 		</classes>
 	</test>
 </suite>

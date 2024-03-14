@@ -49,8 +49,8 @@ public class PageUtility {
 			y = y + 3;
 		}
 	}
-	public void clickBack_Space(WebElement element)
-	{
+
+	public void clickBack_Space(WebElement element) {
 		element.sendKeys(Keys.BACK_SPACE);
 	}
 

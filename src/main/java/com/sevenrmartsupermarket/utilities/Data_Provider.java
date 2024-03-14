@@ -4,6 +4,7 @@ import org.testng.annotations.DataProvider;
 
 public class Data_Provider {
 	Excel excel = new Excel();
+
 	@DataProvider(name = "ExcelProvider")
 	public Object[][] exceldata() {
 		excel.setExcelFile("LoginData", "Login");

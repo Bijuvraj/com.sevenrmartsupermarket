@@ -11,7 +11,6 @@ import com.sevenrmartsupermarket.utilities.ScreenShot;
 public class LoginTest extends Base {
 	LoginPage loginpage;
 	HomePage homepage;
-	
 
 	@Test(retryAnalyzer = com.sevenrmartsupermarket.listeners.RetryAnalyzer.class)
 	public void verifyUserLogin() {
@@ -56,9 +55,9 @@ public class LoginTest extends Base {
 		loginpage.clickOnCheckBox();
 		loginpage.verifyThe_CheckBoxisSelected();
 	}
+
 	@Test
-	public void verifyTheRememberMeText()
-	{
+	public void verifyTheRememberMeText() {
 		loginpage = new LoginPage(driver);
 		System.out.println(loginpage.verifyRememberMeButtonText());
 		String expectedText = "Remember Me";
@@ -74,14 +73,14 @@ public class LoginTest extends Base {
 		String actualColor = loginpage.verifyTheBackgrountColorFor_SigninButton();
 		Assert.assertEquals(actualColor, expectedColor);
 	}
+
 	@Test
-	public void verifyTheSingInButtonText()
-	{
+	public void verifyTheSingInButtonText() {
 		loginpage = new LoginPage(driver);
 		System.out.println(loginpage.verifySignInButtonText());
 		String expectedButtonText = "Sign In";
 		String actualButtonText = loginpage.verifySignInButtonText();
 		Assert.assertEquals(actualButtonText, expectedButtonText);
-		
+
 	}
 }

@@ -1,5 +1,8 @@
 package com.sevenrmartsupermarket.pages;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -40,14 +43,48 @@ public class ManageDeliveryBoyPage {
 	private WebElement deleteSuccessAlert;
 	@FindBy(xpath = "//center[text()='.........RESULT NOT FOUND.......']")
 	private WebElement searchResultNotFound;
-	
+	@FindBy(xpath = "//table//tbody//tr//td[1]")
+	private List<WebElement> getAllNames;
+	@FindBy(xpath = "//h1[text()='Add-Delivery Boy']")
+	private WebElement headerTextInManageDB;
+	@FindBy(xpath = "//a[text()='Cancel']")
+	private WebElement cancelBtnInManageDB;
+	@FindBy(xpath = "//h5[text()=' Alert!']")
+	private WebElement alertSuccessmsg;
+	@FindBy(xpath = "//button[@class='close']")
+	private WebElement alertCloseBtn;
+
 	public ManageDeliveryBoyPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 
+	public String getAllDeliveryBoysName() {
+		List<WebElement> getAllDBName = driver.findElements(By.xpath("//table//tbody//tr//td[1]"));
+		for (WebElement e : getAllDBName) {
+			System.out.println(e.getText());
+		}
+		return "";
+	}
+
 	public void clickOnTheNewDeliveryBoyButton() {
 		newButton.click();
+	}
+
+	public String getHeadeText() {
+		return headerTextInManageDB.getText();
+	}
+
+	public void clickOnTheCancelButtonInManageDB() {
+		cancelBtnInManageDB.click();
+	}
+
+	public String getSuccessfullyAlertText() {
+		return alertSuccessmsg.getText();
+	}
+
+	public void clickOnTheAlertCloseButton() {
+		alertCloseBtn.click();
 	}
 
 	public void enterName(String name) {
@@ -77,10 +114,11 @@ public class ManageDeliveryBoyPage {
 	public void clickOnSaveButton() {
 		pageUtility = new PageUtility(driver);
 		pageUtility.scrollAndClick(saveButton);
-		//saveButton.click();
+		// saveButton.click();
 	}
-	public void createDeliveryBoy(String name,String email,String phno,String address,String userName,String password)
-	{
+
+	public void createDeliveryBoy(String name, String email, String phno, String address, String userName,
+			String password) {
 		clickOnTheNewDeliveryBoyButton();
 		enterName(name);
 		enterEmail(email);
@@ -90,28 +128,28 @@ public class ManageDeliveryBoyPage {
 		enterPassword(password);
 		clickOnSaveButton();
 	}
-	public void verifyClickOnSearchButton()
-	{
+
+	public void verifyClickOnSearchButton() {
 		searchButton.click();
 	}
-	public void verifySearchByDeleveryboyName(String dbName)
-	{
+
+	public void verifySearchByDeleveryboyName(String dbName) {
 		searchByNamefield.sendKeys(dbName);
 	}
-	public void clickonTheSearchButtonInAfterEnterTheName()
-	{
+
+	public void clickonTheSearchButtonInAfterEnterTheName() {
 		searchButtonByAll.click();
 	}
-	public void deleteTheSearchedDeliveryBoyDetailsByClickOnTheDeleteButton()
-	{
+
+	public void deleteTheSearchedDeliveryBoyDetailsByClickOnTheDeleteButton() {
 		deleteButton.click();
 	}
-	public void verifyTheDeleteSuccessfullAlertMessage()
-	{
-		System.out.println(deleteSuccessAlert.getText());
+
+	public String verifyTheDeleteSuccessfullAlertMessage() {
+		return (deleteSuccessAlert.getText());
 	}
-	public void searchResultNotFoundText()
-	{
-		System.out.println(searchResultNotFound.getText());
+
+	public String searchResultNotFoundText() {
+		return (searchResultNotFound.getText());
 	}
 }

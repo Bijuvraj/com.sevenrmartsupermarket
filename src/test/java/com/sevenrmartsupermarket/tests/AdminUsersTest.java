@@ -37,7 +37,7 @@ public class AdminUsersTest extends Base {
 		adminuserspage.clickOnTheHome();
 		String expectedFooterText = "Copyright © 2024 7rmart supermarket.";
 		String actualFooterText = adminuserspage.verifyTheFooterTextInHome();
-		Assert.assertEquals(actualFooterText, expectedFooterText ,"This is failed due to NoSuchElement");
+		Assert.assertEquals(actualFooterText, expectedFooterText, "This is failed due to NoSuchElement");
 	}
 
 	@Test
@@ -57,7 +57,7 @@ public class AdminUsersTest extends Base {
 		String actualAlertText = adminuserspage.verifyTheAlertMessage();
 		adminuserspage.alertClose();
 		Assert.assertEquals(actualAlertText, expectedAlertText);
-		
+
 	}
 
 	@Test
@@ -86,7 +86,7 @@ public class AdminUsersTest extends Base {
 		loginPage.login();
 		homePage.clickOnAdminUsers();
 		adminuserspage.clickOnNewButton();
-		adminuserspage.enterAdminUsersUserName("Jil "+GeneralUtility.getRandomFirstName());
+		adminuserspage.enterAdminUsersUserName("Jil " + GeneralUtility.getRandomFirstName());
 		adminuserspage.enterAdminUsersPassword("Jijo");
 		adminuserspage.selectAdminUsersOnUserTypeDropDown();
 		adminuserspage.selectAdminUsersTypePartner();
@@ -104,7 +104,7 @@ public class AdminUsersTest extends Base {
 		loginPage.login();
 		homePage.clickOnAdminUsers();
 		adminuserspage.clickOnNewButton();
-		adminuserspage.enterAdminUsersUserName("Jun "+GeneralUtility.getRandomFirstName());
+		adminuserspage.enterAdminUsersUserName("Jun " + GeneralUtility.getRandomFirstName());
 		adminuserspage.enterAdminUsersPassword("Jijo");
 		adminuserspage.selectAdminUsersOnUserTypeDropDown();
 		adminuserspage.SelectAdminUsersTypeDeliveryBoy();
@@ -113,17 +113,16 @@ public class AdminUsersTest extends Base {
 		String actualAlertText = adminuserspage.verifyTheAlertMessage();
 		Assert.assertEquals(actualAlertText, expectedAlertText);
 	}
-	
+
 	@Test
-	public void verifyThatCreateANewAdminUserAletrMsgText()
-	{
+	public void verifyThatCreateANewAdminUserAletrMsgText() {
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
 		adminuserspage = new AdminUsersPage(driver);
 		loginPage.login();
 		homePage.clickOnAdminUsers();
 		adminuserspage.clickOnNewButton();
-		adminuserspage.enterAdminUsersUserName("Jun "+GeneralUtility.getRandomFirstName());
+		adminuserspage.enterAdminUsersUserName("Jun " + GeneralUtility.getRandomFirstName());
 		adminuserspage.enterAdminUsersPassword("Jijo");
 		adminuserspage.selectAdminUsersOnUserTypeDropDown();
 		adminuserspage.SelectAdminUsersTypeDeliveryBoy();
@@ -133,9 +132,9 @@ public class AdminUsersTest extends Base {
 		String actualAlertText = adminuserspage.verifyTheAlertMessage();
 		Assert.assertEquals(actualAlertText, expectedAlertText);
 	}
+
 	@Test
-	public void verifyThatClickOnTheSearchButtonAndSearchTheName()
-	{
+	public void verifyThatClickOnTheSearchButtonAndSearchTheName() {
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
 		adminuserspage = new AdminUsersPage(driver);
@@ -148,9 +147,9 @@ public class AdminUsersTest extends Base {
 		String actualDetails = adminuserspage.getSearchDetails();
 		Assert.assertEquals(actualDetails, expectedDetails);
 	}
+
 	@Test
-	public void verifyThatDeleteTheSearchedAdminUserDetails()
-	{
+	public void verifyThatDeleteTheSearchedAdminUserDetails() {
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
 		adminuserspage = new AdminUsersPage(driver);
@@ -163,11 +162,11 @@ public class AdminUsersTest extends Base {
 		driver.switchTo().alert().accept();
 		String expectedAlertText = "Alert!";
 		String actualAlertText = adminuserspage.verifyTheAlertMessage();
-		Assert.assertEquals(actualAlertText, expectedAlertText ,".........RESULT NOT FOUND.......");
+		Assert.assertEquals(actualAlertText, expectedAlertText, ".........RESULT NOT FOUND.......");
 	}
+
 	@Test
-	public void verifyThatDeleteSuccessfullAlertText()
-	{
+	public void verifyThatDeleteSuccessfullAlertText() {
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
 		adminuserspage = new AdminUsersPage(driver);
@@ -182,9 +181,9 @@ public class AdminUsersTest extends Base {
 		String result = adminuserspage.getUserDeleteSuccessfullyAlertText();
 		Assert.assertEquals(result, "Alert!");
 	}
+
 	@Test
-	public void verifyWetherSearchTheDeletedAdminUser()
-	{
+	public void verifyWetherSearchTheDeletedAdminUser() {
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
 		adminuserspage = new AdminUsersPage(driver);
@@ -195,11 +194,11 @@ public class AdminUsersTest extends Base {
 		adminuserspage.clickOnTheSearchButtonAfterEnterTheSearchDetails();
 		System.out.println(adminuserspage.getSearchResultNotFoundText());
 		String result = adminuserspage.getSearchResultNotFoundText();
-		Assert.assertEquals(result,".........RESULT NOT FOUND.......");
+		Assert.assertEquals(result, ".........RESULT NOT FOUND.......");
 	}
+
 	@Test
-	public void verifyThatDeactivateTheUser()
-	{
+	public void verifyThatDeactivateTheUser() {
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
 		adminuserspage = new AdminUsersPage(driver);
@@ -212,9 +211,9 @@ public class AdminUsersTest extends Base {
 		adminuserspage.alertClose();
 		Assert.assertEquals(actualAlertText, expectedAlertText);
 	}
+
 	@Test
-	public void verifyThatDeleteTheUser()
-	{
+	public void verifyThatDeleteTheUser() {
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
 		adminuserspage = new AdminUsersPage(driver);
@@ -227,9 +226,9 @@ public class AdminUsersTest extends Base {
 		adminuserspage.alertClose();
 		Assert.assertEquals(result, "Alert!");
 	}
+
 	@Test
-	public void verifyThatEditTheUserDetails()
-	{
+	public void verifyThatEditTheUserDetails() {
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
 		adminuserspage = new AdminUsersPage(driver);

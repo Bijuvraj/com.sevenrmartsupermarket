@@ -30,7 +30,7 @@ public class ManageExpenseTest extends Base {
 		String expectedFooterText = "Copyright © 2024 7rmart supermarket.";
 		String actualFooterText = manageexpensepage.verifyTheFooterTextInHome();
 		softAssert.assertEquals(actualSubOption, expctedSubOption);
-		softAssert.assertEquals(actualFooterText, expectedFooterText ,"This is failed due to NoSuchElement");
+		softAssert.assertEquals(actualFooterText, expectedFooterText, "This is failed due to NoSuchElement");
 		softAssert.assertAll();
 	}
 
@@ -55,9 +55,9 @@ public class ManageExpenseTest extends Base {
 		manageexpensepage.clickOnTheResetButtonInTheExpenseCategory();
 		Assert.assertEquals(actualTitleName, expectedTiltleName);
 	}
+
 	@Test
-	public void VerifyThatEditTheExpenseCategoryInList()
-	{
+	public void VerifyThatEditTheExpenseCategoryInList() {
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
 		manageexpensepage = new ManageExpensePage(driver);
@@ -72,7 +72,7 @@ public class ManageExpenseTest extends Base {
 		String result = manageexpensepage.newManageExpenseCreateSuccessfullyalert();
 		manageexpensepage.closeTheNewManageExpenseAlert();
 		Assert.assertEquals(result, "Alert!");
-		
+
 	}
 
 	@Test

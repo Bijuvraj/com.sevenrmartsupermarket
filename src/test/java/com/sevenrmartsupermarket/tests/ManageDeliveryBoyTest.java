@@ -1,5 +1,6 @@
 package com.sevenrmartsupermarket.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.sevenrmartsupermarket.base.Base;
@@ -12,13 +13,18 @@ public class ManageDeliveryBoyTest extends Base {
 	LoginPage loginPage;
 	HomePage homePage;
 	ManageDeliveryBoyPage managedeliveryboypage;
-	
+
 	@Test
 	public void clickOnTheManageDeliveryBoyOption() {
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
+		managedeliveryboypage = new ManageDeliveryBoyPage(driver);
 		loginPage.login();
 		homePage.clickOnTheManageDeliveryBoyOption();
+		managedeliveryboypage.getAllDeliveryBoysName();
+		String expectedDBNames = managedeliveryboypage.getAllDeliveryBoysName();
+		String actualDBNames = managedeliveryboypage.getAllDeliveryBoysName();
+		Assert.assertEquals(actualDBNames, expectedDBNames);
 	}
 
 	@Test
@@ -29,6 +35,10 @@ public class ManageDeliveryBoyTest extends Base {
 		loginPage.login();
 		homePage.clickOnTheManageDeliveryBoyOption();
 		managedeliveryboypage.clickOnTheNewDeliveryBoyButton();
+		managedeliveryboypage.clickOnSaveButton();
+		String result = managedeliveryboypage.getHeadeText();
+		managedeliveryboypage.clickOnTheCancelButtonInManageDB();
+		Assert.assertEquals(result, "Add-Delivery Boy");
 	}
 
 	@Test
@@ -38,15 +48,18 @@ public class ManageDeliveryBoyTest extends Base {
 		managedeliveryboypage = new ManageDeliveryBoyPage(driver);
 		loginPage.login();
 		homePage.clickOnTheManageDeliveryBoyOption();
-		String firstName = "Nioo "+GeneralUtility.getRandomFirstName();
+		String firstName = "Nioo " + GeneralUtility.getRandomFirstName();
 		managedeliveryboypage.createDeliveryBoy(firstName, "abdsssdffdsg@gmail.com", "8978787878",
 				"jhdvhdsbvjhbsdkvhcbshdvb ksdhfviushdh jsdhgjh", GeneralUtility.getRandomFirstName(), "nio");
 		System.out.println(GeneralUtility.getRandomFirstName());
+		managedeliveryboypage.getSuccessfullyAlertText();
+		String result = managedeliveryboypage.getSuccessfullyAlertText();
+		managedeliveryboypage.clickOnTheAlertCloseButton();
+		Assert.assertEquals(result, "Alert!");
 	}
-	
+
 	@Test
-	public void verifyClickingOnTheSearchButton()
-	{
+	public void verifyClickingOnTheSearchButton() {
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
 		managedeliveryboypage = new ManageDeliveryBoyPage(driver);
@@ -54,10 +67,9 @@ public class ManageDeliveryBoyTest extends Base {
 		homePage.clickOnTheManageDeliveryBoyOption();
 		managedeliveryboypage.verifyClickOnSearchButton();
 	}
-	
+
 	@Test(groups = "smokeTest")
-	public void verifyTheDeliveryBoySearchByNaame()
-	{
+	public void verifyTheDeliveryBoySearchByNaame() {
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
 		managedeliveryboypage = new ManageDeliveryBoyPage(driver);
@@ -67,9 +79,9 @@ public class ManageDeliveryBoyTest extends Base {
 		managedeliveryboypage.verifySearchByDeleveryboyName("Nio");
 		managedeliveryboypage.clickonTheSearchButtonInAfterEnterTheName();
 	}
+
 	@Test(groups = "sanityTest")
-	public void verifyThatDeleteTheSearchedDeliveryBoyDetails()
-	{
+	public void verifyThatDeleteTheSearchedDeliveryBoyDetails() {
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
 		managedeliveryboypage = new ManageDeliveryBoyPage(driver);
@@ -81,10 +93,9 @@ public class ManageDeliveryBoyTest extends Base {
 		managedeliveryboypage.deleteTheSearchedDeliveryBoyDetailsByClickOnTheDeleteButton();
 		driver.switchTo().alert().accept();
 	}
-	
-	@Test(groups={"grp1","grp2"})
-	public void verifyTheDeleteDeliveryBoySuccessfullyAlertMsg()
-	{
+
+	@Test(groups = { "grp1", "grp2" })
+	public void verifyTheDeleteDeliveryBoySuccessfullyAlertMsg() {
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
 		managedeliveryboypage = new ManageDeliveryBoyPage(driver);
@@ -95,12 +106,13 @@ public class ManageDeliveryBoyTest extends Base {
 		managedeliveryboypage.clickonTheSearchButtonInAfterEnterTheName();
 		managedeliveryboypage.deleteTheSearchedDeliveryBoyDetailsByClickOnTheDeleteButton();
 		driver.switchTo().alert().accept();
-		managedeliveryboypage.verifyTheDeleteSuccessfullAlertMessage();
+		String result = managedeliveryboypage.verifyTheDeleteSuccessfullAlertMessage();
+		managedeliveryboypage.clickOnTheAlertCloseButton();
+		Assert.assertEquals(result, "Alert!");
 	}
-	
+
 	@Test
-	public void verifyThatTheDeletedDBDetailsSearch()
-	{
+	public void verifyThatTheDeletedDBDetailsSearch() {
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
 		managedeliveryboypage = new ManageDeliveryBoyPage(driver);
@@ -110,5 +122,8 @@ public class ManageDeliveryBoyTest extends Base {
 		managedeliveryboypage.verifySearchByDeleveryboyName("Nioo Kirby");
 		managedeliveryboypage.clickonTheSearchButtonInAfterEnterTheName();
 		managedeliveryboypage.searchResultNotFoundText();
+		String expectedResult = "";
+		String actualResult = managedeliveryboypage.searchResultNotFoundText();
+		Assert.assertEquals(actualResult, expectedResult);
 	}
 }
