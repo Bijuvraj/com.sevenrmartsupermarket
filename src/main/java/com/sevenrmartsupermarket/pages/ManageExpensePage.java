@@ -17,29 +17,39 @@ import com.sevenrmartsupermarket.utilities.PageUtility;
 public class ManageExpensePage {
 	PageUtility pageUtility;
 	HomePage homePage;
-	GeneralUtility generalUtility;
+	GeneralUtility generalUtility = new GeneralUtility();
 	public WebDriver driver;
 
+	@FindBy(xpath = "//li[@class='nav-item has-treeview menu-open']//ul[@class='nav nav-treeview']//li[@class='nav-item']//a//p")
+	private List<WebElement> subOptionsInManageExpense;
 	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/expense-category']")
 	private WebElement expenseCategory;
-	@FindBy(xpath = "//table//tbody//tr//td")
+	@FindBy(xpath = "//table//tbody//tr")
 	private List<WebElement> allCategoryTitle;
 	@FindBy(xpath = "//input[@name='name']")
 	private WebElement enterTitleNameInEdit;
+	@FindBy(xpath = "//input[@name='name']")
+	private WebElement SearchDetailsInExpenseCategory;
 	@FindBy(xpath = "//button[@name='Update']")
 	private WebElement updateBtnInEdit;
-	@FindBy(xpath ="//a[@onclick='click_button(2)']")
+	@FindBy(xpath = "//a[@onclick='click_button(2)']")
 	private WebElement searchBtnInCategory;
-	@FindBy(xpath = "//p[text()='Manage Expense']")////a[@href='https://groceryapp.uniqassosiates.com/admin/list-expense']
+	@FindBy(xpath = "//p[text()='Manage Expense']") 
 	private WebElement manageExpense;
 	@FindBy(xpath = "//a[@onclick='click_button(1)']")
 	private WebElement createNewExpenseCategoryBtn;
 	@FindBy(xpath = "//a[@onclick='click_button(2)']")
 	private WebElement searchExpenseCategoryBtn;
+	@FindBy(xpath = "//input[@id='un']")
+	private WebElement titleFieldInSearchExpenseCategory;
+	@FindBy(xpath = "//button[@name='Search']")
+	private WebElement searchBtnInSearchExpenseCategory;
 	@FindBy(xpath = "//input[@id='name']")
 	private WebElement titleOfNewExpenseCategory;
 	@FindBy(xpath = "//button[@name='Create']")
 	private WebElement saveButton;
+	@FindBy(xpath = "(//a[text()='Reset'])[1]")
+	private WebElement resetBtnInExpenseCategory;
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
 	private WebElement titleCreationSuccessAlertMsg;
 	@FindBy(xpath = "//a[@onclick='click_button(1)']")
@@ -72,17 +82,18 @@ public class ManageExpensePage {
 	private WebElement alert;
 	@FindBy(xpath = "//button[@class='close']")
 	private WebElement alertCloseBtn;
-	@FindBy(xpath ="//a[text()='Cancel']")
+	@FindBy(xpath = "//a[text()='Cancel']")
 	private WebElement cancelButton;
 	@FindBy(xpath = "//select[@id='um']")
 	private WebElement selectUserInSearch;
 	@FindBy(xpath = "//button[@name='Search']")
 	private WebElement searchBtnInSearch;
-	@FindBy(xpath ="//table//tbody//tr[1]/td")
+	@FindBy(xpath = "//table//tbody//tr[1]/td")
 	private WebElement getSearchDetails;
 	@FindBy(xpath = "//a[text()='Reset']")
 	private WebElement resetBtnInSearch;
-	
+	@FindBy(xpath = "//strong[text()='Copyright © 2024 ']")
+	private WebElement footerText;
 
 	public ManageExpensePage(WebDriver driver) {
 		this.driver = driver;
@@ -92,13 +103,28 @@ public class ManageExpensePage {
 	public void clickOnTheExpenseCategory() {
 		expenseCategory.click();
 	}
-	public void clickOnTheSeachButtonInCategoryExpense()
-	{
+
+	public void clickOnTheSeachButtonInCategoryExpense() {
 		searchBtnInCategory.click();
 	}
-	public void clickOnTheEditCategoryButton(String titleName)
+	public void clickOnTheSearchButtonInExpenseCategory()
 	{
-		GeneralUtility generalUtility= new GeneralUtility();
+		searchBtnInSearchExpenseCategory.click();
+	}
+	public void clickOnTheResetButtonInTheExpenseCategory()
+	{
+		resetBtnInExpenseCategory.click();
+	}
+	public void enterExpenseTitleNameInSearch(String title)
+	{
+		titleFieldInSearchExpenseCategory.sendKeys(title);
+	}
+	public String verifySearchedDetailsTitleName()
+	{
+		return SearchDetailsInExpenseCategory.getText();
+	}
+
+	public void clickOnTheEditCategoryButton(String titleName) {
 		List<String> allName = new ArrayList<String>();
 		allName = generalUtility.getTextOfElements(allCategoryTitle);
 		int index = 0;
@@ -109,22 +135,34 @@ public class ManageExpensePage {
 			}
 		}
 		System.out.println(allName);
-		WebElement nameElement = driver.findElement(By.xpath("//div//table//tbody//tr["+index+"]//td[2]//a[1]"));
-		nameElement.click();
+		WebElement editElement = driver.findElement(By.xpath("//table//tbody//tr[" + index + "]//td[2]//a[1]"));
+		editElement.click();
 	}
-	public void clickOnBack_Space()
-	{
+
+	public void clickOnBack_Space() {
 		enterTitleNameInEdit.click();
 		pageUtility = new PageUtility(driver);
 		pageUtility.clickBack_Space(enterTitleNameInEdit);
 	}
-	public void clickOnTheUpdateButtonInEdit()
-	{
+
+	public void clickOnTheUpdateButtonInEdit() {
 		updateBtnInEdit.click();
 	}
 
 	public void clickOnTheManageExpenseOption() {
 		manageExpense.click();
+	}
+	public String getSubOptionsOfManageExpense()
+	{
+		List<WebElement> subOption = driver.findElements(By.xpath("//li[@class='nav-item has-treeview menu-open']//ul[@class='nav nav-treeview']//li[@class='nav-item']//a//p"));
+		for(WebElement e : subOption)
+		{
+			System.out.println(e.getText());
+		}
+		return "";
+	}
+	public String verifyTheFooterTextInHome() {
+		return footerText.getText();
 	}
 
 	public void cilckOnTheNewExpenseCategoryButton() {
@@ -151,58 +189,60 @@ public class ManageExpensePage {
 		Select select1 = new Select(selectUser);
 		select1.selectByIndex(4);
 	}
-	public void selectCategoryInManageExpense()	{
+
+	public void selectCategoryInManageExpense() {
 		Select select2 = new Select(selectCatagory);
 		select2.selectByIndex(6);
 	}
-	public void selecTheOrderId()
-	{
+
+	public void selecTheOrderId() {
 		Select select3 = new Select(selectOrderid);
 		select3.selectByIndex(3);
 	}
-	public void selectThePurchaseId()	
-	{
+
+	public void selectThePurchaseId() {
 		Select select4 = new Select(purchaseId);
 		select4.selectByIndex(6);
 	}
-	public void selectTheExpenseType()
-	{
+
+	public void selectTheExpenseType() {
 		Select select5 = new Select(expenseType);
 		select5.selectByIndex(2);
 	}
-	public void enterTheAmount(String amount)	
-	{
+
+	public void enterTheAmount(String amount) {
 		amount1.sendKeys(amount);
 	}
-	public void enterTheRemarks(String remarks)
-	{
+
+	public void enterTheRemarks(String remarks) {
 		remarksField.sendKeys(remarks);
 	}
-	public void clickOnTheChooseFileButton()
-	{
+
+	public void clickOnTheChooseFileButton() {
 		String filepath = "C:\\Users\\bijuv\\Downloads\\PushNotification.xlsx";
 		File file = new File(filepath);
 		chooseFileBtn.sendKeys(file.getAbsolutePath());
 	}
-	public void clickOnTheSavaButtonInNewManageExpense()
-	{
+
+	public void clickOnTheSavaButtonInNewManageExpense() {
 		PageUtility pageutility = new PageUtility(driver);
 		pageutility.scrollAndClick(save);
 	}
+
 	public String newManageExpenseCreateSuccessfullyalert() {
 		return alert.getText();
 	}
-	public void closeTheNewManageExpenseAlert()
-	{
+
+	public void closeTheNewManageExpenseAlert() {
 		alertCloseBtn.click();
 	}
-	public void clickOnTheCancelButton()
-	{
+
+	public void clickOnTheCancelButton() {
 		PageUtility pageutility = new PageUtility(driver);
 		pageutility.scrollAndClick(cancelButton);
 	}
-	public void clickOnTheSearchButtonInManageExpense()
-	{
+
+	public void clickOnTheSearchButtonInManageExpense() {
 		searchManageExpenseBtn.click();
 		Select select1 = new Select(selectUserInSearch);
 		select1.selectByIndex(4);
@@ -210,5 +250,5 @@ public class ManageExpensePage {
 		System.out.println(getSearchDetails.getText());
 		resetBtnInSearch.click();
 	}
-	
+
 }
