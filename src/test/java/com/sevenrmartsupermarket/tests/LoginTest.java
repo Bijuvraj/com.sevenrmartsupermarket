@@ -2,10 +2,10 @@ package com.sevenrmartsupermarket.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import com.sevenrmartsupermarket.base.Base;
 import com.sevenrmartsupermarket.pages.HomePage;
 import com.sevenrmartsupermarket.pages.LoginPage;
+import com.sevenrmartsupermarket.utilities.Data_Provider;
 import com.sevenrmartsupermarket.utilities.ScreenShot;
 
 public class LoginTest extends Base {
@@ -16,11 +16,22 @@ public class LoginTest extends Base {
 	public void verifyUserLogin() {
 		loginpage = new LoginPage(driver);
 		homepage = new HomePage(driver);
-		// loginpage.login(); //default admin login from xlsx
 		loginpage.login("Amina", "B000A0GB7Q");
 		String expectedProfileName = "Amina";
 		String actualProfileName = homepage.getProfileName();
 		Assert.assertEquals(actualProfileName, expectedProfileName);
+	}
+
+	@Test
+	public void verifyThatTheAdminCanAbleToLoginAndLogout() {
+		loginpage = new LoginPage(driver);
+		homepage = new HomePage(driver);
+		loginpage.login();
+		homepage.clickOnTheAdminLogoInRightCorner();
+		homepage.clickOnTheLogOutOptionInAdmin();
+		loginpage.login();
+		String result = homepage.verifyTheAppLogoText();
+		Assert.assertEquals(result, "7rmart supermarket");
 	}
 
 	@Test
@@ -30,16 +41,15 @@ public class LoginTest extends Base {
 		ScreenShot.takeScreenShot(driver, "hi");
 	}
 
-	@Test
-	public void verifyClickOnTheCheckBox() {
+	@Test(dataProvider = "ExcelProvider", dataProviderClass = Data_Provider.class)
+	public void verifyClickOnTheCheckBox(String userName, String password) {
 		loginpage = new LoginPage(driver);
-		loginpage.enterUserName("Amina");
-		loginpage.enterPassword("B000A0GB7Q");
+		loginpage.enterUserName(userName);
+		loginpage.enterPassword(password);
 		loginpage.clickOnCheckBox();
 		loginpage.verifyThe_CheckBoxisSelected();
 		loginpage.clickOnLoginButton();
 		ScreenShot.takeScreenShot(driver, "hi");
-
 	}
 
 	@Test
@@ -81,6 +91,5 @@ public class LoginTest extends Base {
 		String expectedButtonText = "Sign In";
 		String actualButtonText = loginpage.verifySignInButtonText();
 		Assert.assertEquals(actualButtonText, expectedButtonText);
-
 	}
 }

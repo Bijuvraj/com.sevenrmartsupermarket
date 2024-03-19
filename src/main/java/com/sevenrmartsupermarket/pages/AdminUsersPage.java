@@ -3,15 +3,11 @@ package com.sevenrmartsupermarket.pages;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
-
-import javax.xml.xpath.XPath;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.sevenrmartsupermarket.utilities.GeneralUtility;
 import com.sevenrmartsupermarket.utilities.PageUtility;
 
@@ -75,6 +71,18 @@ public class AdminUsersPage {
 	private WebElement userNameFieldInUpdate;
 	@FindBy(xpath = "//strong[text()='Copyright © 2024 ']")
 	private WebElement footerText;
+	@FindBy(xpath = "//p[contains(text(),'Settings')]")
+	private WebElement settingsOption;
+	@FindBy(xpath = "//p[contains(text(),'Change Password')]")
+	private WebElement changePassword;
+	@FindBy(xpath = "//input[@name='old_pwd']")
+	private WebElement oldPassword;
+	@FindBy(xpath = "//input[@name='new_pwd']")
+	private WebElement newPassword;
+	@FindBy(xpath = "//input[@name='conf_password']")
+	private WebElement confirmPassword;
+	@FindBy(xpath = "//button[@type='submit']")
+	private WebElement changeButton;
 
 	public AdminUsersPage(WebDriver driver) {
 		this.driver = driver;
@@ -139,6 +147,37 @@ public class AdminUsersPage {
 
 	public void alertClose() {
 		statusChangeAlertCloseBtn.click();
+	}
+
+	public void clickOnTheSettingsOption() {
+		settingsOption.click();
+	}
+
+	public void clickOnTheChangePasswordInSettings() {
+		pageUtility = new PageUtility(driver);
+		pageUtility.scrollAndClick(changePassword);
+	}
+
+	public void enterTheOldPassword(String oldPasswod) {
+		oldPassword.sendKeys(oldPasswod);
+	}
+
+	public void enterTheNewPassword(String newPasswod) {
+		newPassword.sendKeys(newPasswod);
+	}
+
+	public void enterConfirmPassword(String confirmPasswod) {
+		confirmPassword.sendKeys(confirmPasswod);
+	}
+
+	public void changePassword(String oldPassword, String newPassword, String confirmPassword) {
+		enterTheOldPassword(oldPassword);
+		enterTheNewPassword(newPassword);
+		enterConfirmPassword(confirmPassword);
+	}
+
+	public void clickOnTheChangeButton() {
+		changeButton.click();
 	}
 
 	public void clickOntheSearchButton() {

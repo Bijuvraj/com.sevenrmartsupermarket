@@ -2,11 +2,11 @@ package com.sevenrmartsupermarket.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import com.sevenrmartsupermarket.base.Base;
 import com.sevenrmartsupermarket.pages.HomePage;
 import com.sevenrmartsupermarket.pages.LoginPage;
 import com.sevenrmartsupermarket.pages.ManageDeliveryBoyPage;
+import com.sevenrmartsupermarket.utilities.Data_Provider;
 import com.sevenrmartsupermarket.utilities.GeneralUtility;
 
 public class ManageDeliveryBoyTest extends Base {
@@ -52,6 +52,21 @@ public class ManageDeliveryBoyTest extends Base {
 		managedeliveryboypage.createDeliveryBoy(firstName, "abdsssdffdsg@gmail.com", "8978787878",
 				"jhdvhdsbvjhbsdkvhcbshdvb ksdhfviushdh jsdhgjh", GeneralUtility.getRandomFirstName(), "nio");
 		System.out.println(GeneralUtility.getRandomFirstName());
+		managedeliveryboypage.getSuccessfullyAlertText();
+		String result = managedeliveryboypage.getSuccessfullyAlertText();
+		managedeliveryboypage.clickOnTheAlertCloseButton();
+		Assert.assertEquals(result, "Alert!");
+	}
+
+	@Test(dataProvider = "loginDB", dataProviderClass = Data_Provider.class)
+	public void verifyThatCreateNewDeliveryBoyUsing_DataProvider(String name, String email, String phno, String address,
+			String userName, String password) {
+		loginPage = new LoginPage(driver);
+		homePage = new HomePage(driver);
+		managedeliveryboypage = new ManageDeliveryBoyPage(driver);
+		loginPage.login();
+		homePage.clickOnTheManageDeliveryBoyOption();
+		managedeliveryboypage.createDeliveryBoy(name, email, phno, address, userName, password);
 		managedeliveryboypage.getSuccessfullyAlertText();
 		String result = managedeliveryboypage.getSuccessfullyAlertText();
 		managedeliveryboypage.clickOnTheAlertCloseButton();

@@ -3,14 +3,12 @@ package com.sevenrmartsupermarket.pages;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
-
 import com.sevenrmartsupermarket.utilities.GeneralUtility;
 import com.sevenrmartsupermarket.utilities.PageUtility;
 
@@ -251,5 +249,4 @@ public class ManageExpensePage {
 		System.out.println(getSearchDetails.getText());
 		resetBtnInSearch.click();
 	}
-
 }

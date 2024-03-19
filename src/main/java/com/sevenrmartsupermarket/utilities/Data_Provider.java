@@ -11,4 +11,10 @@ public class Data_Provider {
 		Object data[][] = excel.getMultidimentionalData(2, 2);
 		return data;
 	}
+	@DataProvider (name = "loginDB")
+	public Object[][] DBlogins() {
+		excel.setExcelFile("DBData", "DB");
+		Object data[][] = excel.getMultidimentionalData(2, 6);
+		return data;
+	}
 }

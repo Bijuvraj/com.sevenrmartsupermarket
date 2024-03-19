@@ -2,10 +2,8 @@ package com.sevenrmartsupermarket.tests;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import com.sevenrmartsupermarket.base.Base;
 import com.sevenrmartsupermarket.pages.HomePage;
 import com.sevenrmartsupermarket.pages.LoginPage;

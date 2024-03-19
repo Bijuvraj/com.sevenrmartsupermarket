@@ -1,7 +1,6 @@
 package com.sevenrmartsupermarket.pages;
 
 import java.util.Properties;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -41,13 +40,17 @@ public class PushNotificationPage {
 		sendButton.click();
 	}
 
-	/**
-	 * public void pushNotification(String title, String description) {
-	 * enterTitle(title); enterDescription(description); clickOnSendButton(); }
-	 * public void pushNotification() { String title =
-	 * properties.getProperty("title"); String description =
-	 * properties.getProperty("description"); //pushNotification(title,description);
-	 * enterTitle(title); enterDescription(description); clickOnSendButton(); }
-	 **/
+	public void pushNotification(String title, String description) {
+		enterTitle(title);
+		enterDescription(description);
+		clickOnSendButton();
+	}
 
+	public void pushNotification() {
+		String title = properties.getProperty("title");
+		String description = properties.getProperty("description");
+		enterTitle(title);
+		enterDescription(description);
+		clickOnSendButton();
+	}
 }

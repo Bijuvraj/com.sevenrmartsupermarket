@@ -2,16 +2,13 @@ package com.sevenrmartsupermarket.utilities;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.openqa.selenium.WebElement;
-
 import com.github.javafaker.Faker;
 
 public class GeneralUtility {
 
 	public String get_Attribute(WebElement element, String attribute) {
 		return (element.getAttribute(attribute));
-
 	}
 
 	public List<String> getTextOfElements(List<WebElement> elements) {

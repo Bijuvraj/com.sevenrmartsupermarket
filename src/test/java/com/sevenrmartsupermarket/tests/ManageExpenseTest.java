@@ -3,9 +3,7 @@ package com.sevenrmartsupermarket.tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
 import com.sevenrmartsupermarket.base.Base;
-import com.sevenrmartsupermarket.pages.AdminUsersPage;
 import com.sevenrmartsupermarket.pages.HomePage;
 import com.sevenrmartsupermarket.pages.LoginPage;
 import com.sevenrmartsupermarket.pages.ManageExpensePage;
@@ -72,7 +70,6 @@ public class ManageExpenseTest extends Base {
 		String result = manageexpensepage.newManageExpenseCreateSuccessfullyalert();
 		manageexpensepage.closeTheNewManageExpenseAlert();
 		Assert.assertEquals(result, "Alert!");
-
 	}
 
 	@Test
@@ -91,7 +88,6 @@ public class ManageExpenseTest extends Base {
 		String actualAlert = manageexpensepage.getTitleCreateSuccessfullAlertMsg();
 		manageexpensepage.closeTheNewManageExpenseAlert();
 		Assert.assertEquals(actualAlert, expectedAlert);
-
 	}
 
 	@Test

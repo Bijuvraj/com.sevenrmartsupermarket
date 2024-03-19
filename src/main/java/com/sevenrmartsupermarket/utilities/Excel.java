@@ -2,12 +2,10 @@ package com.sevenrmartsupermarket.utilities;
 
 import java.io.File;
 import java.io.FileInputStream;
-
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
 import com.sevenrmartsupermarket.constants.Constants;
 
 public class Excel {
@@ -59,6 +57,5 @@ public class Excel {
 			return null;
 
 		}
-
 	}
 }

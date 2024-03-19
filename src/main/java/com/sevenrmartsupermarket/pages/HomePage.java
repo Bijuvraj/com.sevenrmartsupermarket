@@ -2,16 +2,16 @@ package com.sevenrmartsupermarket.pages;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.sevenrmartsupermarket.utilities.GeneralUtility;
+import com.sevenrmartsupermarket.utilities.PageUtility;
 
 public class HomePage {
 	GeneralUtility generalUtility;
+	PageUtility pageUtility;
 	public WebDriver driver;
 
 	@FindBy(xpath = "//div[@class='info']//a[@href='https://groceryapp.uniqassosiates.com/admin/home']")
@@ -26,6 +26,12 @@ public class HomePage {
 	private List<WebElement> iconslist;
 	@FindBy(xpath = "//nav[@class='mt-2']//ul//li//a")
 	private List<WebElement> allOptionlist;
+	@FindBy(xpath = "//a[@data-toggle='dropdown']")
+	private WebElement adminlogo;
+	@FindBy(xpath = "(//a[@class='dropdown-item'])[2]")
+	private WebElement logoutOption;
+	@FindBy(xpath = "//span[text()='7rmart supermarket']")
+	private WebElement appLogoText;
 
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
@@ -48,6 +54,18 @@ public class HomePage {
 		List<String> optionsName = new ArrayList<String>();
 		optionsName = generalutility.getTextOfElements(allOptionlist);
 		return optionsName;
+	}
+
+	public void clickOnTheAdminLogoInRightCorner() {
+		adminlogo.click();
+	}
+
+	public void clickOnTheLogOutOptionInAdmin() {
+		logoutOption.click();
+	}
+
+	public String verifyTheAppLogoText() {
+		return appLogoText.getText();
 	}
 
 	public void clickOnAdminUsers() {

@@ -1,13 +1,11 @@
 package com.sevenrmartsupermarket.pages;
 
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.sevenrmartsupermarket.utilities.PageUtility;
 
 public class ManageDeliveryBoyPage {
@@ -114,7 +112,6 @@ public class ManageDeliveryBoyPage {
 	public void clickOnSaveButton() {
 		pageUtility = new PageUtility(driver);
 		pageUtility.scrollAndClick(saveButton);
-		// saveButton.click();
 	}
 
 	public void createDeliveryBoy(String name, String email, String phno, String address, String userName,

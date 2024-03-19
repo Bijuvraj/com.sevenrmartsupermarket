@@ -2,12 +2,10 @@ package com.sevenrmartsupermarket.pages;
 
 import java.io.FileInputStream;
 import java.util.Properties;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.sevenrmartsupermarket.constants.Constants;
 
 public class LoginPage {
@@ -20,7 +18,7 @@ public class LoginPage {
 	private WebElement passwordField;
 	@FindBy(xpath = "//button[text()='Sign In']")
 	private WebElement loginButton;
-	@FindBy(xpath = "//label[@for='remember']") ////label[contains(text(),'Remember Me')]
+	@FindBy(xpath = "//label[@for='remember']") 
 	private WebElement checkBox;
 
 	public LoginPage(WebDriver driver) {
@@ -47,9 +45,9 @@ public class LoginPage {
 	public void clickOnLoginButton() {
 		loginButton.click();
 	}
-	public String verifySignInButtonText()
-	{
-		return(loginButton.getText());
+
+	public String verifySignInButtonText() {
+		return (loginButton.getText());
 	}
 
 	public void login(String userName, String password) {
@@ -61,7 +59,6 @@ public class LoginPage {
 	public void login() {
 		String userName = properties.getProperty("userName");
 		String password = properties.getProperty("password");
-		// login(userName, password);
 		enterUserName(userName);
 		enterPassword(password);
 		clickOnLoginButton();
@@ -86,8 +83,8 @@ public class LoginPage {
 	public String verifyTheBackgrountColorFor_SigninButton() {
 		return (loginButton.getCssValue("color"));
 	}
-	public String verifyRememberMeButtonText()
-	{
+
+	public String verifyRememberMeButtonText() {
 		return (checkBox.getText());
 	}
 }

@@ -1,11 +1,11 @@
 package com.sevenrmartsupermarket.tests;
 
 import org.testng.annotations.Test;
-
 import com.sevenrmartsupermarket.base.Base;
 import com.sevenrmartsupermarket.pages.LoginPage;
 import com.sevenrmartsupermarket.pages.PushNotificationPage;
 import com.sevenrmartsupermarket.utilities.Excel;
+
 public class PushNotificationTest extends Base {
 	LoginPage loginPage;
 	PushNotificationPage pushnotificationpage;

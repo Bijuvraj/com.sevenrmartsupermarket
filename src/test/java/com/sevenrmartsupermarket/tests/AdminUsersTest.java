@@ -2,18 +2,18 @@ package com.sevenrmartsupermarket.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
+import org.testng.asserts.SoftAssert;
 import com.sevenrmartsupermarket.base.Base;
 import com.sevenrmartsupermarket.pages.AdminUsersPage;
 import com.sevenrmartsupermarket.pages.HomePage;
 import com.sevenrmartsupermarket.pages.LoginPage;
-import com.sevenrmartsupermarket.pages.ManageExpensePage;
 import com.sevenrmartsupermarket.utilities.GeneralUtility;
 
 public class AdminUsersTest extends Base {
 	LoginPage loginPage;
 	HomePage homePage;
 	AdminUsersPage adminuserspage;
+	SoftAssert softAssert = new SoftAssert();
 
 	@Test
 	public void verifyTheUserClickOnTheAdminUsers() {
@@ -56,7 +56,13 @@ public class AdminUsersTest extends Base {
 		String expectedAlertText = "Alert!";
 		String actualAlertText = adminuserspage.verifyTheAlertMessage();
 		adminuserspage.alertClose();
-		Assert.assertEquals(actualAlertText, expectedAlertText);
+		homePage.clickOnTheAdminLogoInRightCorner();
+		homePage.clickOnTheLogOutOptionInAdmin();
+		loginPage.login("Verlene", "Jijo");
+		String result = homePage.getProfileName();
+		softAssert.assertEquals(result, "Verlene");
+		softAssert.assertEquals(actualAlertText, expectedAlertText);
+		softAssert.assertAll();
 
 	}
 
@@ -75,7 +81,14 @@ public class AdminUsersTest extends Base {
 		adminuserspage.clickOnTheSaveButton();
 		String expectedAlertText = "Alert!";
 		String actualAlertText = adminuserspage.verifyTheAlertMessage();
-		Assert.assertEquals(actualAlertText, expectedAlertText);
+		adminuserspage.alertClose();
+		homePage.clickOnTheAdminLogoInRightCorner();
+		homePage.clickOnTheLogOutOptionInAdmin();
+		loginPage.login("Arlen", "Jijo");
+		String result = homePage.getProfileName();
+		softAssert.assertEquals(result, "Arlen");
+		softAssert.assertEquals(actualAlertText, expectedAlertText);
+		softAssert.assertAll();
 	}
 
 	@Test
@@ -93,7 +106,14 @@ public class AdminUsersTest extends Base {
 		adminuserspage.clickOnTheSaveButton();
 		String expectedAlertText = "Alert!";
 		String actualAlertText = adminuserspage.verifyTheAlertMessage();
-		Assert.assertEquals(actualAlertText, expectedAlertText);
+		adminuserspage.alertClose();
+		homePage.clickOnTheAdminLogoInRightCorner();
+		homePage.clickOnTheLogOutOptionInAdmin();
+		loginPage.login("Jil Christiane", "Jijo");
+		String result = homePage.getProfileName();
+		softAssert.assertEquals(result, "Jil Christiane");
+		softAssert.assertEquals(actualAlertText, expectedAlertText);
+		softAssert.assertAll();
 	}
 
 	@Test
@@ -111,7 +131,14 @@ public class AdminUsersTest extends Base {
 		adminuserspage.clickOnTheSaveButton();
 		String expectedAlertText = "Alert!";
 		String actualAlertText = adminuserspage.verifyTheAlertMessage();
-		Assert.assertEquals(actualAlertText, expectedAlertText);
+		adminuserspage.alertClose();
+		homePage.clickOnTheAdminLogoInRightCorner();
+		homePage.clickOnTheLogOutOptionInAdmin();
+		loginPage.login("Jun Shanda", "Jijo");
+		String result = homePage.getProfileName();
+		softAssert.assertEquals(result, "Jun Shanda");
+		softAssert.assertEquals(actualAlertText, expectedAlertText);
+		softAssert.assertAll();
 	}
 
 	@Test
@@ -130,6 +157,7 @@ public class AdminUsersTest extends Base {
 		adminuserspage.verifyTheAlertMessage();
 		String expectedAlertText = "Alert!";
 		String actualAlertText = adminuserspage.verifyTheAlertMessage();
+		adminuserspage.alertClose();
 		Assert.assertEquals(actualAlertText, expectedAlertText);
 	}
 
@@ -141,7 +169,7 @@ public class AdminUsersTest extends Base {
 		loginPage.login();
 		homePage.clickOnAdminUsers();
 		adminuserspage.clickOntheSearchButton();
-		adminuserspage.enterUserNameInSearch("Jun Jacquline");
+		adminuserspage.enterUserNameInSearch("Jun Ashlea");
 		adminuserspage.clickOnTheSearchButtonAfterEnterTheSearchDetails();
 		String expectedDetails = adminuserspage.getSearchDetails();
 		String actualDetails = adminuserspage.getSearchDetails();
@@ -163,6 +191,22 @@ public class AdminUsersTest extends Base {
 		String expectedAlertText = "Alert!";
 		String actualAlertText = adminuserspage.verifyTheAlertMessage();
 		Assert.assertEquals(actualAlertText, expectedAlertText, ".........RESULT NOT FOUND.......");
+	}
+
+	@Test
+	public void verifyThatTheAdminCanAbleToChangeThePassword() {
+		loginPage = new LoginPage(driver);
+		homePage = new HomePage(driver);
+		adminuserspage = new AdminUsersPage(driver);
+		loginPage.login("Pearline", "Jij");
+		adminuserspage.clickOnTheSettingsOption();
+		adminuserspage.clickOnTheChangePasswordInSettings();
+		adminuserspage.changePassword("Jij", "Jijo", "Jijo");
+		adminuserspage.clickOnTheChangeButton();
+		String result = adminuserspage.getUserDeleteSuccessfullyAlertText();
+		adminuserspage.alertClose();
+		adminuserspage.clickOnTheHome();
+		Assert.assertEquals(result, "Alert!");
 	}
 
 	@Test
