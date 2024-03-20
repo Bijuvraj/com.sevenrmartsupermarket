@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="test" thread-count="5" parallel="tests">
+	<listeners>
+		<listener
+			class-name="com.sevenrmartsupermarket.listeners.ExtentReporter"></listener>
+	</listeners>
+	<test name="regressionTest1">
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.AdminUsersTest"></class>
+		</classes>
+	</test>
+	<test name="regressionTest2">
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.HomeTest"></class>
+		</classes>
+	</test>
+	<test name="regressionTest3">
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.LoginTest"></class>
+		</classes>
+	</test>
+	<test name="regressionTest4">
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.ManageDeliveryBoyTest"></class>
+		</classes>
+	</test>
+	<test name="regressionTest5">
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.ManageExpenseTest"></class>
+		</classes>
+	</test>
+	<test name="regressionTest6">
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.PushNotificationTest"></class>
+		</classes>
+	</test>
+</suite>
