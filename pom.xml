@@ -19,6 +19,7 @@
 					<configuration>
 						<suiteXmlFiles>
 							<file>src/main/resources/xmlfiles/parallel.xml</file>
+							<file>src/main/resources/xmlfiles/AllTest.xml</file>
 						</suiteXmlFiles>
 					</configuration>
 				</plugin>

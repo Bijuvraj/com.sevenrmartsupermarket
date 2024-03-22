@@ -66,6 +66,9 @@ public class ManageDeliveryBoyTest extends Base {
 		managedeliveryboypage = new ManageDeliveryBoyPage(driver);
 		loginPage.login();
 		homePage.clickOnTheManageDeliveryBoyOption();
+		name = name+GeneralUtility.getRandomFirstName();
+		System.out.println("Name " +name);
+		userName =userName+GeneralUtility.getRandomFirstName();
 		managedeliveryboypage.createDeliveryBoy(name, email, phno, address, userName, password);
 		managedeliveryboypage.getSuccessfullyAlertText();
 		String result = managedeliveryboypage.getSuccessfullyAlertText();
@@ -137,7 +140,7 @@ public class ManageDeliveryBoyTest extends Base {
 		managedeliveryboypage.verifySearchByDeleveryboyName("Nioo Kirby");
 		managedeliveryboypage.clickonTheSearchButtonInAfterEnterTheName();
 		managedeliveryboypage.searchResultNotFoundText();
-		String expectedResult = "";
+		String expectedResult = ".........RESULT NOT FOUND.......";
 		String actualResult = managedeliveryboypage.searchResultNotFoundText();
 		Assert.assertEquals(actualResult, expectedResult);
 	}

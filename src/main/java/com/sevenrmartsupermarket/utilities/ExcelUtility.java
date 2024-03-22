@@ -8,7 +8,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import com.sevenrmartsupermarket.constants.Constants;
 
-public class Excel {
+public class ExcelUtility {
 	XSSFSheet sheet;
 	XSSFWorkbook workbook;
 

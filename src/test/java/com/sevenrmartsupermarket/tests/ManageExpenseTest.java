@@ -106,7 +106,7 @@ public class ManageExpenseTest extends Base {
 		manageexpensepage.selectTheExpenseType();
 		manageexpensepage.enterTheAmount("6000");
 		manageexpensepage.enterTheRemarks("6000");
-		manageexpensepage.clickOnTheChooseFileButton();
+		manageexpensepage.imageFileUpload();
 		manageexpensepage.clickOnTheSavaButtonInNewManageExpense();
 		manageexpensepage.newManageExpenseCreateSuccessfullyalert();
 		String result = manageexpensepage.newManageExpenseCreateSuccessfullyalert();
@@ -125,5 +125,8 @@ public class ManageExpenseTest extends Base {
 		homePage.clickOnTheManageExpense();
 		manageexpensepage.clickOnTheManageExpenseOption();
 		manageexpensepage.clickOnTheSearchButtonInManageExpense();
+		String expectedFooterText = "Copyright © 2024 7rmart supermarket.";
+		String actualFooterText = manageexpensepage.verifyTheFooterTextInHome();
+		Assert.assertEquals(actualFooterText, expectedFooterText);
 	}
 }

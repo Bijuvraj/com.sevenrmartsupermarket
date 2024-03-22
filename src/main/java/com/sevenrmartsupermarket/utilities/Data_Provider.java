@@ -3,7 +3,7 @@ package com.sevenrmartsupermarket.utilities;
 import org.testng.annotations.DataProvider;
 
 public class Data_Provider {
-	Excel excel = new Excel();
+	ExcelUtility excel = new ExcelUtility();
 
 	@DataProvider(name = "ExcelProvider")
 	public Object[][] exceldata() {

@@ -35,10 +35,12 @@ public class LoginTest extends Base {
 	}
 
 	@Test
-	public void verifyTheChrckBoxIsDisplayed() {
+	public void verifyTheCheckBoxIsDisplayed() {
 		loginpage = new LoginPage(driver);
 		loginpage.verifyCheckBoxisDisplayed();
-		ScreenShot.takeScreenShot(driver, "hi");
+		boolean result = loginpage.verifyCheckBoxisDisplayed();
+		System.out.println(result);
+		Assert.assertTrue(result);
 	}
 
 	@Test(dataProvider = "ExcelProvider", dataProviderClass = Data_Provider.class)
@@ -47,23 +49,25 @@ public class LoginTest extends Base {
 		loginpage.enterUserName(userName);
 		loginpage.enterPassword(password);
 		loginpage.clickOnCheckBox();
-		loginpage.verifyThe_CheckBoxisSelected();
+		boolean result = loginpage.verifyThecheckBox_isEnabled();
 		loginpage.clickOnLoginButton();
-		ScreenShot.takeScreenShot(driver, "hi");
+		Assert.assertTrue(result);
 	}
 
 	@Test
 	public void verifyCheckBoxiSEnabled() {
 		loginpage = new LoginPage(driver);
 		loginpage.clickOnCheckBox();
-		loginpage.verifyThecheckBox_isEnabled();
+		boolean result = loginpage.verifyThecheckBox_isEnabled();
+		Assert.assertTrue(result);
 	}
 
 	@Test
 	public void verifyTheCkeckBoxisSelected() {
 		loginpage = new LoginPage(driver);
 		loginpage.clickOnCheckBox();
-		loginpage.verifyThe_CheckBoxisSelected();
+		boolean result = loginpage.verifyThe_CheckBoxisSelected();
+		Assert.assertTrue(result);
 	}
 
 	@Test

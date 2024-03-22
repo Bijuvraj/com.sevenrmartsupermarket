@@ -68,16 +68,16 @@ public class LoginPage {
 		checkBox.click();
 	}
 
-	public void verifyThecheckBox_isEnabled() {
-		System.out.println(checkBox.isEnabled());
+	public boolean verifyThecheckBox_isEnabled() {
+		return(checkBox.isEnabled());
 	}
 
-	public void verifyCheckBoxisDisplayed() {
-		System.out.println(checkBox.isDisplayed());
+	public boolean verifyCheckBoxisDisplayed() {
+		return(checkBox.isDisplayed());
 	}
 
-	public void verifyThe_CheckBoxisSelected() {
-		System.out.println(checkBox.isSelected());
+	public boolean verifyThe_CheckBoxisSelected() {
+		return(checkBox.isSelected());
 	}
 
 	public String verifyTheBackgrountColorFor_SigninButton() {

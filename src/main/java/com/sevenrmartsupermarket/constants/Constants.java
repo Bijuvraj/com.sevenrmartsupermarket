@@ -12,4 +12,5 @@ public class Constants {
 	public static final String ADMIN_USERS_FILE_PATH = System.getProperty("user.dir")
 			+ "\\src\\main\\resources\\ExcelFiles\\";
 	public static final String EXTENT_REPORT_PATH = System.getProperty("user.dir") + "\\extentreport";
+	public static final String CHOOSEFILE_ME_FILE_PATH = System.getProperty("user.dir") + "\\chooseFile\\";
 }

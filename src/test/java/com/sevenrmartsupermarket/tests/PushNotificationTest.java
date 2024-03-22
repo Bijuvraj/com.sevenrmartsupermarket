@@ -1,20 +1,24 @@
 package com.sevenrmartsupermarket.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.sevenrmartsupermarket.base.Base;
 import com.sevenrmartsupermarket.pages.LoginPage;
+import com.sevenrmartsupermarket.pages.ManageExpensePage;
 import com.sevenrmartsupermarket.pages.PushNotificationPage;
-import com.sevenrmartsupermarket.utilities.Excel;
+import com.sevenrmartsupermarket.utilities.ExcelUtility;
 
 public class PushNotificationTest extends Base {
 	LoginPage loginPage;
 	PushNotificationPage pushnotificationpage;
-	Excel excel = new Excel();
+	ExcelUtility excel = new ExcelUtility();
+	ManageExpensePage manageexpensepage;
 
 	@Test
-	public void verifyThePushNotificationMessage() {
+	public void verifyThatThePushNotificationMessageIsAbleToSend() {
 		loginPage = new LoginPage(driver);
 		pushnotificationpage = new PushNotificationPage(driver);
+		manageexpensepage = new ManageExpensePage(driver);
 		loginPage.login();
 		pushnotificationpage.clickOnPushNotification();
 		excel.setExcelFile("PushNotificationData", "Notification");
@@ -25,5 +29,9 @@ public class PushNotificationTest extends Base {
 		pushnotificationpage.enterTitle(title);
 		pushnotificationpage.enterDescription(description);
 		pushnotificationpage.clickOnSendButton();
+		manageexpensepage.newManageExpenseCreateSuccessfullyalert();
+		String result = manageexpensepage.newManageExpenseCreateSuccessfullyalert();
+		manageexpensepage.closeTheNewManageExpenseAlert();
+		Assert.assertEquals(result, "Alert!");
 	}
 }

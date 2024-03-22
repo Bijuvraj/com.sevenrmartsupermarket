@@ -9,6 +9,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+
+import com.sevenrmartsupermarket.constants.Constants;
 import com.sevenrmartsupermarket.utilities.GeneralUtility;
 import com.sevenrmartsupermarket.utilities.PageUtility;
 
@@ -239,6 +241,12 @@ public class ManageExpensePage {
 	public void clickOnTheCancelButton() {
 		PageUtility pageutility = new PageUtility(driver);
 		pageutility.scrollAndClick(cancelButton);
+	}
+
+	public void imageFileUpload() {
+
+		File file = new File(Constants.CHOOSEFILE_ME_FILE_PATH);
+		chooseFileBtn.sendKeys(Constants.CHOOSEFILE_ME_FILE_PATH + "jpeg.png");
 	}
 
 	public void clickOnTheSearchButtonInManageExpense() {

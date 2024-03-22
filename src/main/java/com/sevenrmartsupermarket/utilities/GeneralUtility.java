@@ -2,6 +2,8 @@ package com.sevenrmartsupermarket.utilities;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import com.github.javafaker.Faker;
 
@@ -9,6 +11,10 @@ public class GeneralUtility {
 
 	public String get_Attribute(WebElement element, String attribute) {
 		return (element.getAttribute(attribute));
+	}
+
+	public String getTabTitle(WebDriver driver) {
+		return (driver.getTitle());
 	}
 
 	public List<String> getTextOfElements(List<WebElement> elements) {

@@ -184,7 +184,7 @@ public class AdminUsersTest extends Base {
 		loginPage.login();
 		homePage.clickOnAdminUsers();
 		adminuserspage.clickOntheSearchButton();
-		adminuserspage.enterUserNameInSearch("Jun Jacquline");
+		adminuserspage.enterUserNameInSearch("Jeramy123");
 		adminuserspage.clickOnTheSearchButtonAfterEnterTheSearchDetails();
 		adminuserspage.clickOnTheDeleteButton();
 		driver.switchTo().alert().accept();
@@ -198,10 +198,10 @@ public class AdminUsersTest extends Base {
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
 		adminuserspage = new AdminUsersPage(driver);
-		loginPage.login("Pearline", "Jij");
+		loginPage.login("Pearline", "Jijo");
 		adminuserspage.clickOnTheSettingsOption();
 		adminuserspage.clickOnTheChangePasswordInSettings();
-		adminuserspage.changePassword("Jij", "Jijo", "Jijo");
+		adminuserspage.changePassword("Jijo", "Jij", "Jij");
 		adminuserspage.clickOnTheChangeButton();
 		String result = adminuserspage.getUserDeleteSuccessfullyAlertText();
 		adminuserspage.alertClose();
@@ -217,7 +217,7 @@ public class AdminUsersTest extends Base {
 		loginPage.login();
 		homePage.clickOnAdminUsers();
 		adminuserspage.clickOntheSearchButton();
-		adminuserspage.enterUserNameInSearch("Jun Wenona");
+		adminuserspage.enterUserNameInSearch("Quincy");
 		adminuserspage.clickOnTheSearchButtonAfterEnterTheSearchDetails();
 		adminuserspage.clickOnTheDeleteButton();
 		driver.switchTo().alert().accept();
@@ -248,7 +248,7 @@ public class AdminUsersTest extends Base {
 		adminuserspage = new AdminUsersPage(driver);
 		loginPage.login();
 		homePage.clickOnAdminUsers();
-		adminuserspage.deactivatingUser("nandhunandhu");
+		adminuserspage.deactivatingUser("Jil Williams");
 		adminuserspage.verifyTheAlertMessage();
 		String expectedAlertText = "Alert!";
 		String actualAlertText = adminuserspage.verifyTheAlertMessage();
@@ -263,7 +263,7 @@ public class AdminUsersTest extends Base {
 		adminuserspage = new AdminUsersPage(driver);
 		loginPage.login();
 		homePage.clickOnAdminUsers();
-		adminuserspage.deleteTheUser("Yasmine");
+		adminuserspage.deleteTheUser("Rufina");
 		driver.switchTo().alert().accept();
 		adminuserspage.verifyTheAlertMessage();
 		String result = adminuserspage.getUserDeleteSuccessfullyAlertText();
@@ -278,7 +278,7 @@ public class AdminUsersTest extends Base {
 		adminuserspage = new AdminUsersPage(driver);
 		loginPage.login();
 		homePage.clickOnAdminUsers();
-		adminuserspage.editTheUserDetails("leon Randall");
+		adminuserspage.editTheUserDetails("Jil William");
 		adminuserspage.clickBack_Space();
 		adminuserspage.clickOnTheUpdateButton();
 		adminuserspage.verifyTheAlertMessage();
