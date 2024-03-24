@@ -31,11 +31,11 @@ public class WaitUtility {
 
 	public void waitForVisibility(WebElement element, long time) {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(time));
-		wait.until(ExpectedConditions.elementToBeClickable(element));
+		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 
 	public void waitForLoadingWindow(WebElement element, long time) {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(time));
-		wait.until(ExpectedConditions.invisibilityOf(element));
+		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 }
