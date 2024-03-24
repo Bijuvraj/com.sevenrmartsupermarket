@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="test" thread-count="5" parallel="tests">
+<suite name="test" thread-count="7" parallel="tests">
 	<listeners>
 		<listener
 			class-name="com.sevenrmartsupermarket.listeners.ExtentReporter"></listener>
@@ -32,6 +32,11 @@
 	<test name="regressionTest6">
 		<classes>
 			<class name="com.sevenrmartsupermarket.tests.PushNotificationTest"></class>
+		</classes>
+	</test>
+	<test name="regressionTest7">
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.MobileSliderTest"></class>
 		</classes>
 	</test>
 </suite>

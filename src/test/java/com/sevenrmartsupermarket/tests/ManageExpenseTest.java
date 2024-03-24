@@ -105,7 +105,7 @@ public class ManageExpenseTest extends Base {
 		manageexpensepage.selectThePurchaseId();
 		manageexpensepage.selectTheExpenseType();
 		manageexpensepage.enterTheAmount("6000");
-		manageexpensepage.enterTheRemarks("6000");
+		manageexpensepage.enterTheRemarks("600");
 		manageexpensepage.imageFileUpload();
 		manageexpensepage.clickOnTheSavaButtonInNewManageExpense();
 		manageexpensepage.newManageExpenseCreateSuccessfullyalert();

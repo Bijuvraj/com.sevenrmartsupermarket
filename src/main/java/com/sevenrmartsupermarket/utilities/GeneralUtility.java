@@ -34,4 +34,9 @@ public class GeneralUtility {
 		Faker faker = new Faker();
 		return faker.name().firstName();
 	}
+
+	public static String getRandomNumber() {
+		Faker faker = new Faker();
+		return faker.number().digit();
+	}
 }

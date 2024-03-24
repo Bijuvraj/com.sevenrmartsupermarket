@@ -19,7 +19,7 @@ public class WaitUtility {
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
 
-	public void waitForAlertVisibility(WebElement element, long time) {
+	public void waitForInVisibility(WebElement element, long time) {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(time));
 		wait.until(ExpectedConditions.invisibilityOf(element));
 	}
@@ -29,7 +29,7 @@ public class WaitUtility {
 		wait.until(ExpectedConditions.elementToBeSelected(element));
 	}
 
-	public void waitForFileUploading(WebElement element, long time) {
+	public void waitForVisibility(WebElement element, long time) {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(time));
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
