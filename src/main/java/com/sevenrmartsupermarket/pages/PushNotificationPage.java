@@ -6,9 +6,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.sevenrmartsupermarket.utilities.PageUtility;
+
 public class PushNotificationPage {
 	WebDriver driver;
 	Properties properties = new Properties();
+	PageUtility pageUtility;
 
 	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-notifications']")
 	private WebElement pushnotification;
@@ -18,6 +21,10 @@ public class PushNotificationPage {
 	private WebElement descriptionfield;
 	@FindBy(xpath = "//button[@type='submit']")
 	private WebElement sendButton;
+	@FindBy(xpath = "//a[text()='Reset']")
+	private WebElement resetButton;
+	@FindBy(xpath = "//a[text()='Home']")
+	private WebElement homeLinkBtn;
 
 	public PushNotificationPage(WebDriver driver) {
 		this.driver = driver;
@@ -37,7 +44,8 @@ public class PushNotificationPage {
 	}
 
 	public void clickOnSendButton() {
-		sendButton.click();
+		pageUtility = new PageUtility(driver);
+		pageUtility.mouseMoveAndClick(sendButton);
 	}
 
 	public void pushNotification(String title, String description) {
@@ -52,5 +60,15 @@ public class PushNotificationPage {
 		enterTitle(title);
 		enterDescription(description);
 		clickOnSendButton();
+	}
+
+	public void clickOnTheResetButton() {
+		pageUtility = new PageUtility(driver);
+		pageUtility.mouseMoveAndClick(resetButton);
+	}
+
+	public void clickOnTheHomeLinkButton() {
+		pageUtility = new PageUtility(driver);
+		pageUtility.mouseMoveAndClick(homeLinkBtn);
 	}
 }

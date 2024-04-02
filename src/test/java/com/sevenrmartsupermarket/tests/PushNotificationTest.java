@@ -34,4 +34,42 @@ public class PushNotificationTest extends Base {
 		manageexpensepage.closeTheNewManageExpenseAlert();
 		Assert.assertEquals(result, "Alert!");
 	}
+	@Test
+	public void verifyThatTheResetButton()
+	{
+		loginPage = new LoginPage(driver);
+		pushnotificationpage = new PushNotificationPage(driver);
+		manageexpensepage = new ManageExpensePage(driver);
+		loginPage.login();
+		pushnotificationpage.clickOnPushNotification();
+		excel.setExcelFile("PushNotificationData", "Notification");
+		String title = excel.getCellData(0, 0);
+		String description = excel.getCellData(0, 1);
+		pushnotificationpage.enterTitle(title);
+		pushnotificationpage.enterDescription(description);
+		pushnotificationpage.clickOnSendButton();
+		String result = manageexpensepage.newManageExpenseCreateSuccessfullyalert();
+		manageexpensepage.closeTheNewManageExpenseAlert();
+		pushnotificationpage.clickOnTheResetButton();
+		Assert.assertEquals(result, "Alert!");
+	}
+	@Test
+	public void verifyThatTheHomeLinkButton()
+	{
+		loginPage = new LoginPage(driver);
+		pushnotificationpage = new PushNotificationPage(driver);
+		manageexpensepage = new ManageExpensePage(driver);
+		loginPage.login();
+		pushnotificationpage.clickOnPushNotification();
+		excel.setExcelFile("PushNotificationData", "Notification");
+		String title = excel.getCellData(0, 0);
+		String description = excel.getCellData(0, 1);
+		pushnotificationpage.enterTitle(title);
+		pushnotificationpage.enterDescription(description);
+		pushnotificationpage.clickOnSendButton();
+		String result = manageexpensepage.newManageExpenseCreateSuccessfullyalert();
+		manageexpensepage.closeTheNewManageExpenseAlert();
+		pushnotificationpage.clickOnTheHomeLinkButton();
+		Assert.assertEquals(result, "Alert!");
+	}
 }

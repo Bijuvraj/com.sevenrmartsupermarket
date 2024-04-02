@@ -35,7 +35,13 @@ public class PageUtility {
 
 	public void mouse_Move(WebElement element) {
 		actions = new Actions(driver);
-		actions.moveToElement(element);
+		actions.moveToElement(element).build().perform();
+	}
+
+	public void mouseMoveAndClick(WebElement element) {
+		actions = new Actions(driver);
+		actions.moveToElement(element).build().perform();
+		actions.click().build().perform();
 	}
 
 	public void javaScriptClick(WebElement element) {
